@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cf532dvu16fhm"]
+
+[ext_resource type="Script" uid="uid://c2qrb5ncfwv8a" path="res://scripts/task/task_modular.gd" id="1_0suut"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vtrwo"]
+
+[node name="task_destroy" type="StaticBody2D" unique_id=1202860228]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_0suut")
+task_type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2100800185]
+shape = SubResource("CircleShape2D_vtrwo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2080301272]

@@ -1,16 +1,37 @@
-[gd_scene format=3 uid="uid://dsi1tbm0fpi20"]
+[gd_scene format=3 uid="uid://cdx24aoy1dsci"]
 
-[ext_resource type="Script" uid="uid://bmeiw8q3ydbua" path="res://scripts/characters/character_body_2d.gd" id="1_5s0wp"]
+[ext_resource type="Script" uid="uid://bb6r6ql8qpfub" path="res://scripts/characters/player.gd" id="1_pq8s5"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5s0wp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j7wjm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5s0wp"]
+size = Vector2(23.111965, 70.833694)
+
+[sub_resource type="Animation" id="Animation_pq8s5"]
+resource_name = "CLEANING BARANG"
+
+[sub_resource type="Animation" id="Animation_gin2a"]
+resource_name = "CLEANING NODA"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7n8ao"]
+_data = {
+&"CLEANING BARANG": SubResource("Animation_pq8s5"),
+&"CLEANING NODA": SubResource("Animation_gin2a")
+}
+
+[sub_resource type="Gradient" id="Gradient_pq8s5"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gin2a"]
+gradient = SubResource("Gradient_pq8s5")
 
 [node name="Player" type="CharacterBody2D" unique_id=2026500027]
 scale = Vector2(0.52, 1)
-script = ExtResource("1_5s0wp")
+collision_mask = 12
+script = ExtResource("1_pq8s5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1755841828]
 position = Vector2(0, -9.799999)
@@ -43,12 +64,20 @@ position = Vector2(0, -9.799999)
 [node name="Interactions" type="Area2D" parent="." unique_id=1952125279]
 position = Vector2(15, -9.799998)
 scale = Vector2(0.43999755, 0.23999886)
+collision_layer = 0
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions" unique_id=1399716977]
+position = Vector2(5.2447877, 3.3333402)
+scale = Vector2(0.99999964, 0.99999934)
 shape = SubResource("RectangleShape2D_5s0wp")
 
 [node name="HoldPosition" type="Marker2D" parent="." unique_id=2043182497]
-position = Vector2(15, -9.799999)
+position = Vector2(9.536743e-07, -21)
+scale = Vector2(1, 0.52000004)
+
+[node name="DropPosition" type="Marker2D" parent="." unique_id=99708494]
+position = Vector2(28.846153, -9)
 scale = Vector2(1, 0.52000004)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=2031447585]
@@ -75,3 +104,25 @@ offset_bottom = -12.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "DAY COUNTER"
+
+[node name="anim" type="AnimationPlayer" parent="." unique_id=1822031063]
+libraries/ = SubResource("AnimationLibrary_7n8ao")
+
+[node name="TimerCleansing" type="Timer" parent="." unique_id=1699654721]
+wait_time = 0.1
+
+[node name="CleansingProgress" type="TextureProgressBar" parent="." unique_id=204016250]
+offset_left = -9.615385
+offset_top = -24.0
+offset_right = 9.615385
+offset_bottom = -22.0
+step = 0.01
+fill_mode = 6
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture1D_gin2a")
+
+[connection signal="area_entered" from="Interactions" to="." method="_on_interactions_area_entered"]
+[connection signal="area_exited" from="Interactions" to="." method="_on_interactions_area_exited"]
+[connection signal="body_entered" from="Interactions" to="." method="_on_interactions_body_entered"]
+[connection signal="body_exited" from="Interactions" to="." method="_on_interactions_body_exited"]
+[connection signal="timeout" from="TimerCleansing" to="." method="_on_timer_timeout"]

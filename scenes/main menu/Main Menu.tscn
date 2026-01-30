@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dxnnxcgxhwb8f"]
+
+[ext_resource type="PackedScene" uid="uid://dj61r0g3ghy8c" path="res://scenes/main menu/basebutton.tscn" id="1_d3dtj"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1341289840]
+
+[node name="Control" type="Control" parent="." unique_id=275312536]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1017753613]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.11372549, 0.11372549, 0.11372549, 0.21176471)
+
+[node name="buttonBox" type="VBoxContainer" parent="Control" unique_id=952216699]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = -44.0
+offset_right = -113.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="Start" parent="Control/buttonBox" unique_id=929015978 instance=ExtResource("1_d3dtj")]
+layout_mode = 2
+durasi = 0.3
+power = 2.0
+
+[node name="Settings" parent="Control/buttonBox" unique_id=1479308149 instance=ExtResource("1_d3dtj")]
+layout_mode = 2
+_text = "SETTINGS"
+power = 2.0
+
+[node name="Quit" parent="Control/buttonBox" unique_id=881426515 instance=ExtResource("1_d3dtj")]
+layout_mode = 2
+_text = "QUIT"
+power = 2.0

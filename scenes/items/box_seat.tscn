@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://6ubccrn37qmf"]
+
+[ext_resource type="Script" uid="uid://trccaq585re8" path="res://scripts/task/box_seat.gd" id="1_rk8mw"]
+[ext_resource type="Texture2D" uid="uid://mgaikogv36xx" path="res://asset/box place.png" id="2_awxfv"]
+[ext_resource type="Texture2D" uid="uid://bwq4reg4qwyhi" path="res://asset/box hover.png" id="3_d1pgs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yg3ru"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ccpaa"]
+radius = 20.0
+
+[node name="box_seat" type="StaticBody2D" unique_id=2036357280]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_rk8mw")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=433373135]
+shape = SubResource("RectangleShape2D_yg3ru")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=430746796]
+collision_layer = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=965282488]
+shape = SubResource("CircleShape2D_ccpaa")
+
+[node name="seat" type="Sprite2D" parent="." unique_id=509354370]
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("2_awxfv")
+
+[node name="hover" type="Sprite2D" parent="." unique_id=1831684109]
+visible = false
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("3_d1pgs")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

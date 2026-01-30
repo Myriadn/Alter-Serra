@@ -1,6 +1,7 @@
 extends StaticBody2D
 class_name PickupItem
 
+
 @export var item_name: String = "Barang Placeholder"
 var is_held: bool = false
 
