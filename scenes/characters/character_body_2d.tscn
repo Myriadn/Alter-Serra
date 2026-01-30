@@ -17,10 +17,18 @@ texture = SubResource("PlaceholderTexture2D_5s0wp")
 
 [node name="ColorRect" type="ColorRect" parent="Sprite2D" unique_id=2020084473]
 offset_left = -9.615385
-offset_top = -10.0
+offset_top = -8.0
 offset_right = 30.384615
-offset_bottom = 30.0
-scale = Vector2(0.50006616, 0.49982354)
+offset_bottom = 32.0
+scale = Vector2(0.4903768, 0.44986838)
+
+[node name="ColorRect2" type="ColorRect" parent="Sprite2D" unique_id=1900111363]
+offset_left = -9.615385
+offset_top = -8.0
+offset_right = 30.384615
+offset_bottom = 32.0
+scale = Vector2(0.44617105, -0.049706902)
+color = Color(0.7213334, 0.56, 1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1101704533]
 shape = SubResource("RectangleShape2D_j7wjm")
