@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dsi1tbm0fpi20"]
+
+[ext_resource type="Script" uid="uid://bmeiw8q3ydbua" path="res://scripts/characters/character_body_2d.gd" id="1_5s0wp"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5s0wp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7wjm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5s0wp"]
+
+[node name="Player" type="CharacterBody2D" unique_id=2026500027]
+scale = Vector2(0.52, 1)
+script = ExtResource("1_5s0wp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1755841828]
+texture = SubResource("PlaceholderTexture2D_5s0wp")
+
+[node name="ColorRect" type="ColorRect" parent="Sprite2D" unique_id=2020084473]
+offset_left = -9.615385
+offset_top = -10.0
+offset_right = 30.384615
+offset_bottom = 30.0
+scale = Vector2(0.50006616, 0.49982354)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1101704533]
+shape = SubResource("RectangleShape2D_j7wjm")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1350848883]
+
+[node name="Interactions" type="Area2D" parent="." unique_id=1952125279]
+position = Vector2(15, 0)
+scale = Vector2(0.43999755, 0.23999886)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions" unique_id=1399716977]
+shape = SubResource("RectangleShape2D_5s0wp")
+
+[node name="HoldPosition" type="Marker2D" parent="." unique_id=2043182497]
+position = Vector2(15, 0)
+scale = Vector2(1, 0.52000004)

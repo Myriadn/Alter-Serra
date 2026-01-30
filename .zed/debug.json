@@ -1,0 +1,27 @@
+[
+  {
+    "adapter": "godot",
+    "label": "Launch Godot Game",
+    "request": "launch",
+    "project": "D:/Godot Project/ggj-2026-sil-22",
+    "port": 6006,
+    "address": "127.0.0.1",
+    "launch_game_instance": true,
+    "launch_scene": true,
+  },
+  {
+    "adapter": "godot",
+    "label": "Attach to Running Godot",
+    "request": "attach",
+    "project": "D:/Godot Project/ggj-2026-sil-22",
+    "port": 6006,
+    "address": "127.0.0.1",
+  },
+  {
+    "adapter": "godot",
+    "label": "Attach (No Project Path)",
+    "request": "attach",
+    "port": 6006,
+    "address": "127.0.0.1",
+  },
+]
