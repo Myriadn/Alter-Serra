@@ -6,6 +6,7 @@ class_name Player
 @onready var drop_position: Marker2D = $DropPosition
 
 @onready var sprite = $Sprite2D
+@onready var sapu_sprite = $Sprite2D/things
 @onready var anim: AnimationPlayer = $anim
 @onready var timer_cleansing: Timer = $TimerCleansing
 @onready var cleansing_progress: TextureProgressBar = $CleansingProgress
@@ -25,6 +26,7 @@ const SPEED = 100.0
 
 func _ready() -> void:
 	cleansing_progress.hide()
+	sapu_sprite.hide()
 
 func _input(event):
 	if event.is_action_pressed("interact"):
@@ -50,15 +52,17 @@ func interact():
 
 
 func pickup_item(body):
-	print("📦 Picking up: ", body.task_name.keys()[body.task_type])
-
 	var inst = HOLD_INTSANCE.instantiate()
 	held_item = inst
 	inst.obj_name = body.task_name.keys()[body.task_type]
 
-	# Set texture based on type (bisa pakai dictionary nanti)
-	var texture_uid = get_pickup_texture_uid(body)
-	inst.image = load(texture_uid)
+	# Ambil texture langsung dari sprite item yang di-pickup
+	var body_sprite = body.get_node_or_null("Sprite2D")
+	if body_sprite and body_sprite.texture:
+		inst.image = body_sprite.texture
+	else:
+		var texture_uid = get_pickup_texture_uid(body)
+		inst.image = load(texture_uid)
 
 	hold_position.add_child(inst)
 	body.pick_box(self)
@@ -84,6 +88,7 @@ func cleansing(objek):
 	cleansing_progress.max_value = durasi
 	objek.cleansing()
 	saved_objek_interact = objek
+	sapu_sprite.show()
 	anim.play("CLEANING " + objek.task_name.keys()[objek.task_type])
 
 func force_stop_cleansing():
@@ -92,6 +97,8 @@ func force_stop_cleansing():
 		saved_objek_interact.do_failure()
 		clean_timer = 0.0
 		saved_objek_interact = null
+		sapu_sprite.hide()
+		anim.stop()
 
 func _set_cleansing_state(state : bool):
 	if state :
@@ -106,23 +113,27 @@ func drop_item():
 	if not is_holding or not held_item:
 		return
 
-	var item_name = "BOX"  # Default
+	var item_name = "BOX"
 	if held_item.get("obj_name"):
 		item_name = held_item.obj_name
 	elif held_item is Node and held_item.has_method("get"):
 		item_name = held_item.get("obj_name") if held_item.get("obj_name") else "BOX"
 
-	# print("Trying to drop: ", item_name)
-
 	# Check jika ada box_seat nearby
 	if available_drop_place:
-		# print("Drop place detected: ", available_drop_place.name)
-
 		# Check jika box_seat
 		if available_drop_place is BoxSeat:
 			if available_drop_place.can_place_item(item_name):
-				# Place di box_seat
-				available_drop_place.set_item(true)
+				# Ambil texture dari held item
+				var item_texture: Texture2D = null
+				if held_item and held_item.has_method("get"):
+					if held_item.get("sprite"):
+						item_texture = held_item.sprite.texture
+					elif held_item.get("image"):
+						item_texture = held_item.image
+
+				# Place di box_seat dengan texture
+				available_drop_place.set_item(true, item_texture)
 
 				# Clear held item
 				is_holding = false
@@ -130,14 +141,11 @@ func drop_item():
 					if i.has_method("_clear_holder"):
 						i._clear_holder()
 
-				# print("✅ Item placed in box seat!")
 				return
 			else:
-				print("❌ Cannot place ", item_name, " in this box seat")
 				return
 
 	# Fallback: Drop di tempat random
-	# print("📦 Dropping at position (no box seat)")
 	var inst = TASK_CLEANING.instantiate()
 	inst.task_type = get_task_type_from_name(item_name)
 	inst.global_position = drop_position.global_position
@@ -148,6 +156,7 @@ func drop_item():
 	for i in hold_position.get_children():
 		if i.has_method("_clear_holder"):
 			i._clear_holder()
+
 
 func get_task_type_from_name(nama: String) -> int:
 	match nama:
@@ -245,3 +254,5 @@ func _on_timer_timeout() -> void:
 	if saved_objek_interact: if clean_timer >= saved_objek_interact.cleaning_duration:
 		saved_objek_interact.do_success()
 		_set_cleansing_state(false)
+		sapu_sprite.hide()
+		anim.stop()

@@ -5,6 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://cdx24aoy1dsci" path="res://scenes/characters/Player.tscn" id="2_ioj4g"]
 [ext_resource type="PackedScene" uid="uid://jcn83penk3wp" path="res://scenes/levels/prototype/level_manager.tscn" id="3_n0474"]
 [ext_resource type="PackedScene" uid="uid://cn3pjhi6lx4c1" path="res://scenes/characters/dialogue_control.tscn" id="4_3fixl"]
+[ext_resource type="Texture2D" uid="uid://bn45cr8836k6g" path="res://assets/levels/environment/meja.tres" id="4_d7ox7"]
+[ext_resource type="Texture2D" uid="uid://dbm88qwhsbj0e" path="res://assets/levels/environment/bangku.tres" id="5_b37cw"]
+[ext_resource type="PackedScene" uid="uid://ox3vvjt0cv1u" path="res://scenes/task/task_modular.tscn" id="6_shf23"]
+[ext_resource type="PackedScene" uid="uid://6ubccrn37qmf" path="res://scenes/items/box_seat.tscn" id="7_a88vs"]
+[ext_resource type="Texture2D" uid="uid://bw4mca7k5va8q" path="res://assets/levels/environment/kertas_acak_1.tres" id="7_g4gbp"]
+[ext_resource type="Texture2D" uid="uid://e4ssvecq0n7f" path="res://assets/levels/environment/dus_2.tres" id="9_iuovg"]
+[ext_resource type="Texture2D" uid="uid://cxwee24rnnicq" path="res://assets/levels/environment/kasur.tres" id="10_44kl2"]
+[ext_resource type="Texture2D" uid="uid://4pqxuhd5476d" path="res://assets/levels/environment/kertas_acak_2.tres" id="10_is7hk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44kl2"]
+size = Vector2(42.000004, 61)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ioj4g"]
 size = Vector2(240, 63.21039)
@@ -15,8 +26,85 @@ script = ExtResource("1_58qdr")
 [node name="NoInterior" type="Sprite2D" parent="." unique_id=1456679427]
 texture = ExtResource("1_ajp4n")
 
+[node name="Kasur" type="Sprite2D" parent="." unique_id=210528743]
+light_mask = 0
+position = Vector2(-85.00001, -29.000002)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("10_44kl2")
+
+[node name="Marker2D" type="Marker2D" parent="Kasur" unique_id=1313696218]
+position = Vector2(0, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Kasur" unique_id=348342559]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kasur/StaticBody2D" unique_id=645431218]
+position = Vector2(1.5258789e-05, 0.5)
+shape = SubResource("RectangleShape2D_44kl2")
+
+[node name="Meja" type="Sprite2D" parent="." unique_id=1461609748]
+light_mask = 0
+position = Vector2(-88.00001, 21.000002)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("4_d7ox7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Meja" unique_id=1272523866]
+position = Vector2(1.1737531e-05, -1.5384588)
+scale = Vector2(0.8153827, 1.3692307)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Meja/StaticBody2D" unique_id=1693941189]
+position = Vector2(1.5258789e-05, 0.5)
+shape = SubResource("RectangleShape2D_44kl2")
+
+[node name="Bangku" type="Sprite2D" parent="." unique_id=544939518]
+light_mask = 0
+position = Vector2(-67.00001, 21)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("5_b37cw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bangku" unique_id=878766522]
+position = Vector2(1.1737531e-05, -2.3841858e-07)
+scale = Vector2(0.56923074, 0.7538461)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bangku/StaticBody2D" unique_id=136436315]
+position = Vector2(1.5258789e-05, 0.5)
+shape = SubResource("RectangleShape2D_44kl2")
+
+[node name="box_seat" parent="." unique_id=2036357280 instance=ExtResource("7_a88vs")]
+position = Vector2(93, 36)
+
+[node name="box_seat2" parent="." unique_id=427829611 instance=ExtResource("7_a88vs")]
+position = Vector2(93, -27)
+
+[node name="TaskModular" parent="." unique_id=126960746 instance=ExtResource("6_shf23")]
+position = Vector2(-15, 23)
+scale = Vector2(0.601753, 0.45733225)
+custom_texture = ExtResource("7_g4gbp")
+
+[node name="TaskModular4" parent="." unique_id=894912333 instance=ExtResource("6_shf23")]
+position = Vector2(1, -0.99999905)
+scale = Vector2(0.601753, 0.45733225)
+custom_texture = ExtResource("10_is7hk")
+
+[node name="TaskModular2" parent="." unique_id=1351020149 instance=ExtResource("6_shf23")]
+position = Vector2(47.000004, 12.999996)
+scale = Vector2(0.65, 0.65)
+collision_layer = 4
+task_type = 2
+custom_texture = ExtResource("9_iuovg")
+
+[node name="TaskModular3" parent="." unique_id=2051501782 instance=ExtResource("6_shf23")]
+position = Vector2(63, -17.999998)
+scale = Vector2(0.65, 0.65)
+collision_layer = 4
+task_type = 2
+custom_texture = ExtResource("9_iuovg")
+
 [node name="Player" parent="." unique_id=2026500027 instance=ExtResource("2_ioj4g")]
-scale = Vector2(0.7, 0.7)
+position = Vector2(-42.000004, -24)
+scale = Vector2(0.6, 0.6)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1507315157]
 position = Vector2(0, -1)
@@ -52,12 +140,7 @@ position = Vector2(121.00001, -1)
 scale = Vector2(0.12599404, 2.9722705)
 shape = SubResource("RectangleShape2D_ioj4g")
 
-[node name="Marker2D" type="Marker2D" parent="." unique_id=1313696218]
-position = Vector2(26, 66)
-
 [node name="LevelManager" parent="." unique_id=167112185 instance=ExtResource("3_n0474")]
-spawn_area_min = Vector2(-100, -50)
-spawn_area_max = Vector2(100, 50)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=905839060]
 

@@ -154,6 +154,8 @@ func on_click_continue():
 
 	# lanjut ke next
 	if node.has("next"):
+		# if node["next"] == "end_1":
+		# 	end_dialog()
 		current_id = node["next"]
 		show_dialog()
 	else:

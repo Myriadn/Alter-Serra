@@ -8,14 +8,13 @@ class_name BoxSeat
 @export var accepted_item_type: String = "BOX"
 
 const SEAT = preload("uid://mgaikogv36xx")
-const BOX = preload("uid://5jwrcqoqsm4i")
 
 signal item_placed_correctly(box_seat: BoxSeat)
 signal player_entered_zone
 signal player_exited_zone
 
 func _ready() -> void:
-	set_item(is_placed)
+	set_item(is_placed, null)  # Pass null untuk init
 	hover.hide()
 	add_to_group("box_seats")
 
@@ -38,10 +37,14 @@ func can_place_item(item_name: String) -> bool:
 		return false
 	return item_name == accepted_item_type or accepted_item_type == "ANY"
 
-
-func set_item(state: bool):
+func set_item(state: bool, item_texture: Texture2D = null):
 	if state:
-		seat.texture = BOX
+		if item_texture:
+			seat.texture = item_texture
+			seat.scale = Vector2(1.0, 1.0)
+		else:
+			pass
+
 		is_placed = true
 		hover.hide()
 

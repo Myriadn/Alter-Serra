@@ -3,7 +3,7 @@ extends Node2D
 @onready var dialog_control = $CanvasLayer/DialogueControl
 @onready var level_manager = $LevelManager
 @onready var player = $Player
-@onready var spawn_point = $Marker2D
+@onready var spawn_point = $Kasur/Marker2D
 
 var dialog_finished_first: bool = false
 

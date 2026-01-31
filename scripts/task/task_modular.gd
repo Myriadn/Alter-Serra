@@ -12,6 +12,7 @@ enum task_name {NODA, BARANG, BOX, RACK}
 	get:
 		return task_type
 @export var cleaning_duration : float = 1.0
+@export var custom_texture : Texture2D = null
 
 const BARANG = preload("uid://b1ns5qv0y7ttm")
 const BOX = preload("uid://5jwrcqoqsm4i")
@@ -50,23 +51,32 @@ const TASK_CONFIG = {
 }
 
 func _ready() -> void:
+	add_to_group("tasks")
 	update_preview()
 
 func update_preview():
 	if not sprite:
 		sprite = get_node_or_null("Sprite2D")
-	if task_type in TASK_CONFIG:
-		var config = TASK_CONFIG[task_type]
-		if sprite:
-			sprite.texture = config["texture"]
-			if sprite.texture:
-				var collision_shape = get_node_or_null("CollisionShape2D")
-				if collision_shape and collision_shape.shape:
-					var shape_size = collision_shape.shape.get_rect().size
-					var texture_size = sprite.texture.get_size()
+	if not sprite:
+		return
 
-					# Scale sprite to fit collision
-					sprite.scale = shape_size / texture_size
+	# Prioritas: custom_texture > config texture
+	if custom_texture:
+		sprite.texture = custom_texture
+	elif task_type in TASK_CONFIG:
+		var config = TASK_CONFIG[task_type]
+		sprite.texture = config["texture"]
+
+	# Scale sprite biar sesuai collision
+	if sprite.texture:
+		var collision_shape = get_node_or_null("CollisionShape2D")
+		if collision_shape and collision_shape.shape:
+			var shape_size = collision_shape.shape.get_rect().size
+			var texture_size = sprite.texture.get_size()
+
+			# Scale sprite to fit collision
+			sprite.scale = shape_size / texture_size
+
 
 func can_be_cleaned() -> bool: # objek yang bisa di bersihkan
 	if task_type in TASK_CONFIG:
