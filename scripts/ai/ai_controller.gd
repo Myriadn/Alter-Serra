@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 class_name AIController
 
 @export var speed: float = 50.0
@@ -10,11 +10,23 @@ var start_position: Vector2
 var target_position: Vector2
 var wait_timer: float = 0.0
 var is_waiting: bool = false
+var velocity: Vector2 = Vector2.ZERO
 
 func _ready():
 	start_position = global_position
 	setup_patrol()
 	# print("AI spawned at: ", global_position)
+
+func _on_body_entered(body: Node2D):
+	if body is Player:  # Cek apakah yang nabrak player
+		print("touched")
+		# Nanti bisa trigger game over / retry di sini
+		trigger_game_over(body)
+
+func trigger_game_over(player: Player):
+	# Placeholder - nanti bisa panggil game manager
+	print("Game over will implemented")
+	# get_tree().reload_current_scene()
 
 # Override ini di child class
 func setup_patrol():
@@ -46,6 +58,7 @@ func handle_idle(delta: float):
 
 func handle_patrol(delta: float):
 	patrol_movement(delta)
+	global_position += velocity * delta
 
 func handle_chase(delta: float):
 	# Untuk nanti kalo mau chase player

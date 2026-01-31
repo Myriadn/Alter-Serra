@@ -54,12 +54,8 @@ constant_angular_velocity = 0.054367006
 
 [node name="Player" parent="EntityGroup" unique_id=2026500027 instance=ExtResource("2_babg3")]
 
-[node name="AIHorizontal" parent="EntityGroup" unique_id=227653391 instance=ExtResource("4_yg3ru")]
-position = Vector2(-5, -61)
-speed = 75.0
-patrol_distance = 25.0
+[node name="AIHorizontal" parent="EntityGroup" unique_id=2112976687 instance=ExtResource("4_yg3ru")]
+position = Vector2(104, -97)
 
-[node name="AIHorizontal2" parent="EntityGroup" unique_id=6648097 instance=ExtResource("5_ccpaa")]
-position = Vector2(134, -153)
-speed = 100.0
-patrol_distance = 50.0
+[node name="AIVertical" parent="EntityGroup" unique_id=1854918124 instance=ExtResource("5_ccpaa")]
+position = Vector2(-41, -81)

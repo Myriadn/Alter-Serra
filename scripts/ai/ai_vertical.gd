@@ -20,7 +20,6 @@ func patrol_movement(delta: float):
 	# Gerak ke target
 	var direction = (target_position - global_position).normalized()
 	velocity = direction * speed
-	move_and_slide()
 
 	# Cek udah sampai target belum
 	if reached_target():
