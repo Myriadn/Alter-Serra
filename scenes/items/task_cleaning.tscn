@@ -21,4 +21,9 @@ texture = ExtResource("2_w7rnn")
 [node name="TimerCleansing" type="Timer" parent="." unique_id=1891187782]
 wait_time = 0.1
 
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=1461631204]
+radius = 15.0
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
 [connection signal="timeout" from="TimerCleansing" to="." method="_on_timer_cleansing_timeout"]

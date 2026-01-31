@@ -1,0 +1,8 @@
+id,speaker,image,text,next,choice_1,next_1,choice_2,next_2
+start,Serra,,Hoammm,lanjut_1,,,,
+lanjut_1,Serra,,Gimana? Udah ketemu pelakunya?,lanjut_2,,,,
+lanjut_2,Tari,,Udah sih,lanjut_3,,,,
+lanjut_3,Serra,,Beneran? Siapa?,lanjut_4,,,,
+lanjut_4,Tari,,Nih depan mataku.,lanjut_5,,,,
+lanjut_5,Serra,,Lah Seriusan?,lanjut_6,,,,
+lanjut_6,Tari,,NIh buktinya.,,,,,

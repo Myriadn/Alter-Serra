@@ -1,0 +1,13 @@
+{
+	"lanjut_1": {
+		"choices": [],
+		"speaker": "Serra",
+		"text": "Pokoknya pas pulang kerja langsung mikirin ide lah"
+	},
+	"start": {
+		"choices": [],
+		"next": "lanjut_1",
+		"speaker": "Serra",
+		"text": "Okelah dah siap semua."
+	}
+}

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://ctilovsx3uw8a"]
+
+[ext_resource type="Script" uid="uid://dtc5xyughir7h" path="res://scripts/enemyt/enemy.gd" id="1_4a83h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_740a7"]
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1118467194]
+collision_layer = 16
+script = ExtResource("1_4a83h")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=961931448]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=91698490]
+shape = SubResource("RectangleShape2D_740a7")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=29720149]
+avoidance_enabled = true
+radius = 20.0
+time_horizon_obstacles = 1.0
+debug_enabled = true
+debug_use_custom = true

@@ -1,0 +1,5 @@
+id,speaker,image,text,next,choice_1,next_1,choice_2,next_2
+start,Serra,,Hoammmm,lanjut_1,,,,
+lanjut_1,Serra,,Ketiduran apa ya semalam?,lanjut_2,,,,
+lanjut_2,Serra,,Ampun dah; gegara ketiduran jadi gini lagi dah,lanjut_3,,,,
+lanjut_3,Serra,,Ini mah perlu bantuan orang lain,,,,,

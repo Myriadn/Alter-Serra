@@ -1,0 +1,15 @@
+{
+	"lanjut_1": {
+		"choices": [],
+		"image": "res://asset/Barang Barang.png",
+		"speaker": "Serra",
+		"text": "Sekarang waktunya untuk kerja"
+	},
+	"start": {
+		"choices": [],
+		"image": "res://asset/Barang Barang.png",
+		"next": "Itu bisa dipikir belakangan.\"",
+		"speaker": "Serra",
+		"text": "\"Yaudahlah"
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"lanjut_1": {
+		"choices": [],
+		"image": "res://asset/Barang Barang.png",
+		"speaker": "Serra",
+		"text": "Sekarang mending ganti baju dan beberes sedikit sebelum tidur deh."
+	},
+	"start": {
+		"choices": [],
+		"image": "res://asset/Barang Barang.png",
+		"next": "lanjut_1",
+		"speaker": "Serra",
+		"text": "Akhirnyaaa sampe kamar jugaa."
+	}
+}

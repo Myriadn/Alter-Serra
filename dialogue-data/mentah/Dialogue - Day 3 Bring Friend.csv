@@ -1,0 +1,6 @@
+id,speaker,image,text,next,choice_1,next_1,choice_2,next_2
+start,Serra,,Makasih ya udah mau bantuin aku,lanjut_1,,,,
+lanjut_1,Tari,,Nggak masalah kok,lanjut_2,,,,
+lanjut_2,Serra,,Lagipula aku juga penasaran sama apa yang kamu bilang di chat.,lanjut_3,,,,
+lanjut_3,Tari,,Tapi mau kan nemenin?,lanjut_4,,,,
+lanjut_4,Serra,,Ayo aja!,,,,,

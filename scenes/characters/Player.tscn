@@ -28,7 +28,7 @@ colors = PackedColorArray(1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_gin2a"]
 gradient = SubResource("Gradient_pq8s5")
 
-[node name="Player" type="CharacterBody2D" unique_id=2026500027]
+[node name="Player" type="CharacterBody2D" unique_id=2026500027 groups=["Player"]]
 scale = Vector2(0.52, 1)
 collision_mask = 12
 script = ExtResource("1_pq8s5")

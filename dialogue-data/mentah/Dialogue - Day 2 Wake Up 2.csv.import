@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cn52ec3rda6ls"
+
+[deps]
+
+files=["res://dialogue-data/mentah/Dialogue - Day 2 Wake Up 2.speaker.translation", "res://dialogue-data/mentah/Dialogue - Day 2 Wake Up 2.en.translation", "res://dialogue-data/mentah/Dialogue - Day 2 Wake Up 2.text.translation", "res://dialogue-data/mentah/Dialogue - Day 2 Wake Up 2.next.translation", "res://dialogue-data/mentah/Dialogue - Day 2 Wake Up 2.en.translation", "res://dialogue-data/mentah/Dialogue - Day 2 Wake Up 2.en.translation", "res://dialogue-data/mentah/Dialogue - Day 2 Wake Up 2.en.translation", "res://dialogue-data/mentah/Dialogue - Day 2 Wake Up 2.en.translation"]
+
+source_file="res://dialogue-data/mentah/Dialogue - Day 2 Wake Up 2.csv"
+dest_files=["res://dialogue-data/mentah/Dialogue - Day 2 Wake Up 2.speaker.translation", "res://dialogue-data/mentah/Dialogue - Day 2 Wake Up 2.en.translation", "res://dialogue-data/mentah/Dialogue - Day 2 Wake Up 2.text.translation", "res://dialogue-data/mentah/Dialogue - Day 2 Wake Up 2.next.translation", "res://dialogue-data/mentah/Dialogue - Day 2 Wake Up 2.en.translation", "res://dialogue-data/mentah/Dialogue - Day 2 Wake Up 2.en.translation", "res://dialogue-data/mentah/Dialogue - Day 2 Wake Up 2.en.translation", "res://dialogue-data/mentah/Dialogue - Day 2 Wake Up 2.en.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

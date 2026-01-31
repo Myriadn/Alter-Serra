@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://w7ft4dw0jcmu"]
+
+[ext_resource type="PackedScene" uid="uid://7tiq4dsm2ktv" path="res://scenes/items/task_cleaning.tscn" id="1_n0faq"]
+[ext_resource type="PackedScene" uid="uid://cdx24aoy1dsci" path="res://scenes/characters/Player.tscn" id="2_ch01e"]
+[ext_resource type="PackedScene" uid="uid://6ubccrn37qmf" path="res://scenes/items/box_seat.tscn" id="3_mvbmp"]
+[ext_resource type="PackedScene" uid="uid://ctilovsx3uw8a" path="res://scenes/enemy/enemy.tscn" id="4_n0faq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wshlw"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_n0faq"]
+vertices = PackedVector2Array(107, 31, 395.15625, 186.92969, -356.3203, 182.0625, -58, 31, -329.64063, -221.85938, -58, -9, 401.82813, -211.14063, 107, -9)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(5, 4, 6, 7), PackedInt32Array(7, 6, 1, 0)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-339, -232, 412, -221, 405, 197, -367, 192)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3oe5m"]
+size = Vector2(145, 20)
+
+[node name="Night Scenes" type="Node2D" unique_id=372122064]
+
+[node name="EntityGroup" type="Node2D" parent="." unique_id=190934608]
+y_sort_enabled = true
+
+[node name="task_cleaning" parent="EntityGroup" unique_id=824050883 instance=ExtResource("1_n0faq")]
+position = Vector2(31, -31)
+task_type = 1
+
+[node name="task_cleaning2" parent="EntityGroup" unique_id=1641092107 instance=ExtResource("1_n0faq")]
+position = Vector2(-102, -43)
+
+[node name="task_cleaning3" parent="EntityGroup" unique_id=1129641829 instance=ExtResource("1_n0faq")]
+position = Vector2(-47, -154)
+collision_layer = 4
+task_type = 2
+
+[node name="task_cleaning4" parent="EntityGroup" unique_id=1572121466 instance=ExtResource("1_n0faq")]
+position = Vector2(177, -59)
+
+[node name="task_cleaning5" parent="EntityGroup" unique_id=1890963737 instance=ExtResource("1_n0faq")]
+position = Vector2(90, -137)
+task_type = 1
+
+[node name="Player" parent="EntityGroup" unique_id=2026500027 instance=ExtResource("2_ch01e")]
+
+[node name="box_seat" parent="EntityGroup" unique_id=2036357280 instance=ExtResource("3_mvbmp")]
+position = Vector2(128, 10)
+physics_material_override = SubResource("PhysicsMaterial_wshlw")
+constant_angular_velocity = 0.054367006
+
+[node name="Enemy" parent="EntityGroup" unique_id=1118467194 instance=ExtResource("4_n0faq")]
+position = Vector2(-31, 70)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=663175950]
+navigation_polygon = SubResource("NavigationPolygon_n0faq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NavigationRegion2D" unique_id=578915635]
+
+[node name="ColorRect" type="ColorRect" parent="NavigationRegion2D/StaticBody2D" unique_id=200069072]
+offset_left = -48.0
+offset_top = 1.0
+offset_right = 97.0
+offset_bottom = 21.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D" unique_id=1301619211]
+position = Vector2(24.5, 11)
+shape = SubResource("RectangleShape2D_3oe5m")

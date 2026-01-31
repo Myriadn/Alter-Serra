@@ -1,0 +1,25 @@
+{
+	"lanjut_1": {
+		"choices": [],
+		"next": "lanjut_2",
+		"speaker": "Serra",
+		"text": "Ketiduran apa ya semalam?"
+	},
+	"lanjut_2": {
+		"choices": [],
+		"next": "lanjut_3",
+		"speaker": "Serra",
+		"text": "Ampun dah; gegara ketiduran jadi gini lagi dah"
+	},
+	"lanjut_3": {
+		"choices": [],
+		"speaker": "Serra",
+		"text": "Ini mah perlu bantuan orang lain"
+	},
+	"start": {
+		"choices": [],
+		"next": "lanjut_1",
+		"speaker": "Serra",
+		"text": "Hoammmm"
+	}
+}
