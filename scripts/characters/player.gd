@@ -1,15 +1,15 @@
 extends CharacterBody2D
 class_name Player
 
-@onready var interaction_area = $Node2D/Interactions
+@onready var interaction_area = $pivot/Interactions
 @onready var hold_position = $HoldPosition
 @onready var drop_position: Marker2D = $DropPosition
 
 @onready var sprite = $Sprite2D
-@onready var color_rect = $Sprite2D/ColorRect
 @onready var anim: AnimationPlayer = $anim
 @onready var timer_cleansing: Timer = $TimerCleansing
 @onready var cleansing_progress: TextureProgressBar = $CleansingProgress
+@onready var pivot: Node2D = $pivot
 
 const HOLD_INTSANCE = preload("uid://coj5g74jgljvy")
 const TASK_CLEANING = preload("uid://7tiq4dsm2ktv")
@@ -187,13 +187,13 @@ func update_facing_direction(direction: Vector2):
 		if direction.x > 0:
 			# Ngadep kanan
 			sprite.scale.x = abs(sprite.scale.x)
-			interaction_area.position = Vector2(offset_distance, 0)
+			pivot.rotation_degrees = 0.0
 			hold_position.position = Vector2(offset_distance, 0)
 			drop_position.position = Vector2(offset_distance + 10, 0)
 		else:
 			# Ngadep kiri
 			sprite.scale.x = -abs(sprite.scale.x)
-			interaction_area.position = Vector2(-offset_distance, 0)
+			pivot.rotation_degrees = 180.0
 			hold_position.position = Vector2(-offset_distance, 0)
 			drop_position.position = Vector2(-offset_distance - 10, 0)
 	else:
@@ -201,13 +201,13 @@ func update_facing_direction(direction: Vector2):
 		if direction.y > 0:
 			# Ngadep bawah
 			sprite.scale.x = abs(sprite.scale.x)  # Reset flip
-			interaction_area.position = Vector2(0, offset_distance)
+			pivot.rotation_degrees = -90.0
 			hold_position.position = Vector2(0, offset_distance)
 			drop_position.position = Vector2(0, offset_distance + 10)
 		else:
 			# Ngadep atas
 			sprite.scale.x = abs(sprite.scale.x)  # Reset flip
-			interaction_area.position = Vector2(0, -offset_distance)
+			pivot.rotation_degrees = 90.0
 			hold_position.position = Vector2(0, -offset_distance)
 			drop_position.position = Vector2(0, -offset_distance - 10)
 

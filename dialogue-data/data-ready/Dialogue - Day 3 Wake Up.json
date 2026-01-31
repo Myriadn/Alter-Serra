@@ -1,23 +1,27 @@
 {
 	"lanjut_1": {
 		"choices": [],
+		"image" : "res://asset/Illus for Dialog/Untitled181_20260131120339.png",
 		"next": "lanjut_2",
 		"speaker": "Serra",
 		"text": "Ketiduran apa ya semalam?"
 	},
 	"lanjut_2": {
 		"choices": [],
+		"image" : "res://asset/Illus for Dialog/Untitled181_20260131120350.png",
 		"next": "lanjut_3",
 		"speaker": "Serra",
 		"text": "Ampun dah; gegara ketiduran jadi gini lagi dah"
 	},
 	"lanjut_3": {
 		"choices": [],
+		"image" : "res://asset/Illus for Dialog/Untitled181_20260131120435.png",
 		"speaker": "Serra",
 		"text": "Ini mah perlu bantuan orang lain"
 	},
 	"start": {
 		"choices": [],
+		"image" : "res://asset/Illus for Dialog/Untitled181_20260131120339.png",
 		"next": "lanjut_1",
 		"speaker": "Serra",
 		"text": "Hoammmm"
