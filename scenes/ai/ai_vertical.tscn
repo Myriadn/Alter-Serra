@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bk074axjkhaow"]
+
+[ext_resource type="Script" uid="uid://cc8ukaqe4hi7f" path="res://scripts/ai/ai_vertical.gd" id="1_cl6yq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1jmu"]
+
+[node name="AIVertical" type="CharacterBody2D" unique_id=227653391]
+script = ExtResource("1_cl6yq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=261026144]
+
+[node name="ColorRect" type="ColorRect" parent="Sprite2D" unique_id=557916235]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(1, 0.39, 0.4001665, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=912697858]
+shape = SubResource("RectangleShape2D_v1jmu")

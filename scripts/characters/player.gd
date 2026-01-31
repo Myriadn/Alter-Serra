@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-@onready var interaction_area = $Interactions
+@onready var interaction_area = $Node2D/Interactions
 @onready var hold_position = $HoldPosition
 @onready var drop_position: Marker2D = $DropPosition
 
@@ -24,7 +24,7 @@ const SPEED = 100.0
 
 func _ready() -> void:
 	cleansing_progress.hide()
-	
+
 func _input(event):
 	if event.is_action_pressed("interact"):
 		if held_item:
@@ -79,7 +79,7 @@ func _set_cleansing_state(state : bool):
 		clean_timer = 0.0
 	is_cleansing = state
 	cleansing_progress.visible = state
-	
+
 func drop_item():
 	if is_holding:
 		if available_drop_place:
@@ -95,7 +95,7 @@ func drop_item():
 
 func _physics_process(_delta: float) -> void:
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	
+
 	velocity = direction * SPEED
 	move_and_slide()
 
@@ -110,24 +110,43 @@ func _physics_process(_delta: float) -> void:
 	if held_item:
 		held_item.global_position = hold_position.global_position
 	if is_cleansing:
-		cleansing_progress.value = clean_timer 
+		cleansing_progress.value = clean_timer
 
 func update_facing_direction(direction: Vector2):
 	facing_direction = direction
 
-	# Flip sprite horizontal untuk kiri/kanan
-	if direction.x > 0:
-		# Ngadep kanan
-		sprite.scale.x = abs(sprite.scale.x)  # Positive = normal
-		# Pindah interaction area & hold position ke kanan
-		interaction_area.position.x = abs(interaction_area.position.x)
-		hold_position.position.x = abs(hold_position.position.x)
-	elif direction.x < 0:
-		# Ngadep kiri
-		sprite.scale.x = -abs(sprite.scale.x)  # Negative = flipped
-		# Pindah interaction area & hold position ke kiri
-		interaction_area.position.x = -abs(interaction_area.position.x)
-		hold_position.position.x = -abs(hold_position.position.x)
+	# Tentukan arah dominan (4-directional: up, down, left, right)
+	var offset_distance = 16  # Jarak item dari player (adjust sesuai size sprite)
+
+	if abs(direction.x) > abs(direction.y):
+		# Horizontal movement (left/right)
+		if direction.x > 0:
+			# Ngadep kanan
+			sprite.scale.x = abs(sprite.scale.x)
+			interaction_area.position = Vector2(offset_distance, 0)
+			hold_position.position = Vector2(offset_distance, 0)
+			drop_position.position = Vector2(offset_distance + 10, 0)
+		else:
+			# Ngadep kiri
+			sprite.scale.x = -abs(sprite.scale.x)
+			interaction_area.position = Vector2(-offset_distance, 0)
+			hold_position.position = Vector2(-offset_distance, 0)
+			drop_position.position = Vector2(-offset_distance - 10, 0)
+	else:
+		# Vertical movement (up/down)
+		if direction.y > 0:
+			# Ngadep bawah
+			sprite.scale.x = abs(sprite.scale.x)  # Reset flip
+			interaction_area.position = Vector2(0, offset_distance)
+			hold_position.position = Vector2(0, offset_distance)
+			drop_position.position = Vector2(0, offset_distance + 10)
+		else:
+			# Ngadep atas
+			sprite.scale.x = abs(sprite.scale.x)  # Reset flip
+			interaction_area.position = Vector2(0, -offset_distance)
+			hold_position.position = Vector2(0, -offset_distance)
+			drop_position.position = Vector2(0, -offset_distance - 10)
+
 
 var obj_touched = []
 

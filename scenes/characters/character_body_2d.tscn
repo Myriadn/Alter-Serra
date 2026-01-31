@@ -9,7 +9,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5s0wp"]
 
 [node name="Player" type="CharacterBody2D" unique_id=2026500027]
-scale = Vector2(0.52, 1)
 script = ExtResource("1_5s0wp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1755841828]
@@ -17,24 +16,25 @@ position = Vector2(0, -9.799999)
 texture = SubResource("PlaceholderTexture2D_5s0wp")
 
 [node name="ColorRect" type="ColorRect" parent="Sprite2D" unique_id=2020084473]
-offset_left = -9.615385
-offset_top = -8.0
-offset_right = 30.384615
-offset_bottom = 32.0
-scale = Vector2(0.4903768, 0.44986838)
+offset_left = -10.0
+offset_top = -8.200001
+offset_right = 30.0
+offset_bottom = 31.8
+scale = Vector2(0.5000796, 0.4500619)
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect2" type="ColorRect" parent="Sprite2D" unique_id=1900111363]
-offset_left = -9.615385
-offset_top = -8.0
-offset_right = 30.384615
-offset_bottom = 32.0
+offset_left = -9.999999
+offset_top = -8.200001
+offset_right = 30.0
+offset_bottom = 31.8
 scale = Vector2(0.4527084, -0.044365868)
 color = Color(0.7213334, 0.56, 1, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1101704533]
 position = Vector2(0, -9.799999)
+scale = Vector2(1.0089058, 1)
 shape = SubResource("RectangleShape2D_j7wjm")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1350848883]

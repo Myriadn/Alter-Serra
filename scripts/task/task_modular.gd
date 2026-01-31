@@ -33,7 +33,7 @@ func update_preview():
 	else :
 		return
 
-func pick_box(body):
+func pick_box(_body):
 	queue_free()
 
 var clean_timer = 0.0
