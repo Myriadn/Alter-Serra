@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dj61r0g3ghy8c"]
+
+[ext_resource type="Script" uid="uid://2ctk6kqsbus6" path="res://scripts/ui_effect/basebutton.gd" id="1_phtcr"]
+
+[node name="basebutton" type="Control" unique_id=929015978]
+custom_minimum_size = Vector2(119, 31)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_phtcr")
+_text = "START"
+_direction = 1
+power = 1.0
+
+[node name="button" type="Button" parent="." unique_id=146373391]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -3.0517578e-05
+grow_horizontal = 2
+grow_vertical = 2
+text = "START"
+
+[connection signal="button_up" from="button" to="." method="_on_button_button_up"]
+[connection signal="mouse_entered" from="button" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="button" to="." method="_on_mouse_exited"]

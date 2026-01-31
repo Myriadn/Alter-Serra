@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://coj5g74jgljvy"]
+
+[ext_resource type="Script" uid="uid://b1m420jehfao4" path="res://scripts/items/hold_intsance.gd" id="1_c0ua1"]
+
+[node name="HoldIntsance" type="Node2D" unique_id=2122794066]
+script = ExtResource("1_c0ua1")
+
+[node name="Control" type="Control" parent="." unique_id=413682838]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1542652393]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -9.615383
+offset_top = -19.230766
+offset_right = 9.615383
+grow_horizontal = 2
+grow_vertical = 0
+expand_mode = 1
+stretch_mode = 5

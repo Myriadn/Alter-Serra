@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://cn3pjhi6lx4c1"]
+
+[ext_resource type="Texture2D" uid="uid://chg503nwyulu3" path="res://icon.svg" id="1_1wjnj"]
+[ext_resource type="Script" uid="uid://cvaxlgflr5j1s" path="res://scripts/characters/dialogue_control.gd" id="1_i32hx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xejum"]
+font_size = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_1wjnj"]
+font_size = 10
+
+[node name="DialogueControl" type="Control" unique_id=1915989084]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i32hx")
+
+[node name="anchor" type="Control" parent="." unique_id=604745374]
+custom_minimum_size = Vector2(575, 80)
+layout_mode = 1
+anchor_left = 0.05078125
+anchor_top = 0.7277778
+anchor_right = 0.94921875
+anchor_bottom = 0.975
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="anchor" unique_id=964617106]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.31764707)
+
+[node name="player_name" type="Label" parent="anchor" unique_id=122462284]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -277.0
+offset_top = -39.5
+offset_right = -50.0
+offset_bottom = -17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST NAME"
+label_settings = SubResource("LabelSettings_xejum")
+
+[node name="dialogue" type="Label" parent="anchor" unique_id=2021536816]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.0
+offset_top = -14.5
+offset_right = 276.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "ini tes dialog yang tidak akan pernah final askkjdhawiughd aiuwdhaiuwhd aiuwhd iawghduiy awgdyugaw dgyas dgywaduyags asuidgwaud asgdywa gdyugawsuydg wauygdyuadg yuwagdyuwa duygayudg awuygdyuagd auygda "
+label_settings = SubResource("LabelSettings_1wjnj")
+autowrap_mode = 3
+text_overrun_behavior = 1
+
+[node name="guide" type="Label" parent="anchor" unique_id=1685268600]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 73.5
+offset_top = 24.5
+offset_right = 275.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Klik dimana saja untuk lanjut"
+label_settings = SubResource("LabelSettings_1wjnj")
+horizontal_alignment = 2
+
+[node name="first" type="TextureRect" parent="." unique_id=1601044166]
+layout_mode = 0
+anchor_left = 0.053125
+anchor_top = 0.23055555
+anchor_right = 0.2203125
+anchor_bottom = 0.73333335
+texture = ExtResource("1_1wjnj")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="second" type="TextureRect" parent="." unique_id=109898034]
+layout_mode = 0
+anchor_left = 0.775
+anchor_top = 0.23055555
+anchor_right = 0.9421875
+anchor_bottom = 0.73333335
+texture = ExtResource("1_1wjnj")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true

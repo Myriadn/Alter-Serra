@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://b04mqswdf8cnk"]
 
-[ext_resource type="PackedScene" uid="uid://dsi1tbm0fpi20" path="res://scenes/characters/character_body_2d.tscn" id="1_3g1ys"]
-[ext_resource type="PackedScene" uid="uid://lxff5ran5u2h" path="res://scenes/items/item_test.tscn" id="2_babg3"]
+[ext_resource type="PackedScene" uid="uid://cdx24aoy1dsci" path="res://scenes/characters/Player.tscn" id="2_babg3"]
+[ext_resource type="PackedScene" uid="uid://7tiq4dsm2ktv" path="res://scenes/items/task_cleaning.tscn" id="3_ca3nq"]
+[ext_resource type="PackedScene" uid="uid://6ubccrn37qmf" path="res://scenes/items/box_seat.tscn" id="3_vtrwo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3g1ys"]
 size = Vector2(145, 20)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ca3nq"]
 
 [node name="Node2D" type="Node2D" unique_id=1665564463]
 
@@ -20,9 +23,31 @@ offset_bottom = 21.0
 position = Vector2(24.5, 11)
 shape = SubResource("RectangleShape2D_3g1ys")
 
-[node name="CharacterBody2D" parent="." unique_id=2026500027 instance=ExtResource("1_3g1ys")]
-position = Vector2(5, -22)
+[node name="EntityGroup" type="Node2D" parent="." unique_id=1537807400]
+y_sort_enabled = true
 
-[node name="Item_test" parent="." unique_id=1701512417 instance=ExtResource("2_babg3")]
-position = Vector2(29.000002, -21)
-scale = Vector2(0.15999755, 0.120000005)
+[node name="task_cleaning" parent="EntityGroup" unique_id=1257969829 instance=ExtResource("3_ca3nq")]
+position = Vector2(31, -31)
+task_type = 1
+
+[node name="task_cleaning2" parent="EntityGroup" unique_id=978501197 instance=ExtResource("3_ca3nq")]
+position = Vector2(-102, -43)
+
+[node name="task_cleaning3" parent="EntityGroup" unique_id=71212040 instance=ExtResource("3_ca3nq")]
+position = Vector2(-47, -154)
+collision_layer = 4
+task_type = 2
+
+[node name="task_cleaning4" parent="EntityGroup" unique_id=261699363 instance=ExtResource("3_ca3nq")]
+position = Vector2(177, -59)
+
+[node name="task_cleaning5" parent="EntityGroup" unique_id=83036680 instance=ExtResource("3_ca3nq")]
+position = Vector2(90, -137)
+task_type = 1
+
+[node name="Player" parent="EntityGroup" unique_id=2026500027 instance=ExtResource("2_babg3")]
+
+[node name="box_seat" parent="EntityGroup" unique_id=2036357280 instance=ExtResource("3_vtrwo")]
+position = Vector2(128, 10)
+physics_material_override = SubResource("PhysicsMaterial_ca3nq")
+constant_angular_velocity = 0.054367006
