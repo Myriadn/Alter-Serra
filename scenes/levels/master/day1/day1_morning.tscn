@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bg4k4rkw2qlbh"]
+
+[ext_resource type="Texture2D" uid="uid://diuxhicxsg8kr" path="res://assets/levels/background/no_interior.png" id="1_ajp4n"]
+[ext_resource type="PackedScene" uid="uid://cdx24aoy1dsci" path="res://scenes/characters/Player.tscn" id="2_ioj4g"]
+[ext_resource type="PackedScene" uid="uid://jcn83penk3wp" path="res://scenes/levels/prototype/level_manager.tscn" id="3_n0474"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ioj4g"]
+size = Vector2(240, 63.21039)
+
+[node name="Day1Morning" type="Node2D" unique_id=837071044]
+
+[node name="NoInterior" type="Sprite2D" parent="." unique_id=1456679427]
+texture = ExtResource("1_ajp4n")
+
+[node name="Player" parent="." unique_id=2026500027 instance=ExtResource("2_ioj4g")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1507315157]
+position = Vector2(0, -1)
+collision_layer = 8
+
+[node name="WallTop" type="CollisionShape2D" parent="StaticBody2D" unique_id=1145349518]
+position = Vector2(2, -70)
+shape = SubResource("RectangleShape2D_ioj4g")
+
+[node name="WallBottom" type="CollisionShape2D" parent="StaticBody2D" unique_id=1883885001]
+position = Vector2(-60.000004, 65.999985)
+scale = Vector2(0.548216, 0.51285666)
+shape = SubResource("RectangleShape2D_ioj4g")
+
+[node name="WallBottom2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1877184181]
+position = Vector2(97, 67.99999)
+scale = Vector2(0.42821598, 0.5528542)
+shape = SubResource("RectangleShape2D_ioj4g")
+
+[node name="WallBottom3" type="CollisionShape2D" parent="StaticBody2D" unique_id=646869884]
+position = Vector2(28.999996, 86)
+scale = Vector2(0.548216, 0.15285659)
+shape = SubResource("RectangleShape2D_ioj4g")
+
+[node name="Left Wall" type="CollisionShape2D" parent="StaticBody2D" unique_id=1738032530]
+position = Vector2(-115.00001, -1)
+scale = Vector2(0.12599404, 2.9722705)
+shape = SubResource("RectangleShape2D_ioj4g")
+
+[node name="Right Wall" type="CollisionShape2D" parent="StaticBody2D" unique_id=915919709]
+position = Vector2(121.00001, -1)
+scale = Vector2(0.12599404, 2.9722705)
+shape = SubResource("RectangleShape2D_ioj4g")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1313696218]
+position = Vector2(-65, 0)
+
+[node name="LevelManager" parent="." unique_id=167112185 instance=ExtResource("3_n0474")]
+spawn_area_min = Vector2(-100, -50)
+spawn_area_max = Vector2(100, 50)
