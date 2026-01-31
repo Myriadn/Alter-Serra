@@ -1,0 +1,49 @@
+{
+	"\"": {
+		"choices": [],
+		"speaker": "",
+		"text": ""
+	},
+	"lanjut_1": {
+		"choices": [
+			{
+				"next": "pilih_1",
+				"text": "Coba begadang deh"
+			},
+			{
+				"next": "pilih_2",
+				"text": "Bodo amat lah"
+			}
+		],
+		"speaker": "Serra",
+		"text": "Mana masalah ini kamar masih belum kelar lagi"
+	},
+	"lanjut_pilih_1": {
+		"choices": [],
+		"speaker": "Serra",
+		"text": "Nggak usah dipikirin aja mending"
+	},
+	"lanjut_pilih_2": {
+		"choices": [],
+		"speaker": "Serra",
+		"text": "Mumpung besok Libur juga."
+	},
+	"pilih_2": {
+		"choices": [],
+		"next": "lanjut_pilih_1",
+		"speaker": "Serra",
+		"text": "Yaudah lah bener kataku di awal."
+	},
+	"pilih_1": {
+		"choices": [],
+		"next": "lanjut_pilih_2",
+		"speaker": "Serra",
+		"text": "Kalau gini mending Begadang lah."
+	},
+	"start": {
+		"choices": [],
+		"next": "lanjut_1",
+		"speaker": "Serra",
+		"text": "Ampun dah; capek banget hari ini."
+	}
+}

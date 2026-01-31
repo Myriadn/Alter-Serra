@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dclef2xnuhnuy"]
+
+[ext_resource type="Script" uid="uid://baobhpuc74f4u" path="res://scripts/ai/ai_horizontal.gd" id="1_6chqj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6chqj"]
+
+[node name="AIHorizontal" type="Area2D" unique_id=2112976687]
+script = ExtResource("1_6chqj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=783440854]
+
+[node name="ColorRect" type="ColorRect" parent="Sprite2D" unique_id=1895745069]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(1, 0.6862745, 0.22352941, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=22470981]
+shape = SubResource("RectangleShape2D_6chqj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1795037269]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

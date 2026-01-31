@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://jt0o43yt2lqu"
+
+[deps]
+
+files=["res://dialogue-data/mentah/Dialogue - Day 1 Back Home.speaker.translation", "res://dialogue-data/mentah/Dialogue - Day 1 Back Home.image.translation", "res://dialogue-data/mentah/Dialogue - Day 1 Back Home.text.translation", "res://dialogue-data/mentah/Dialogue - Day 1 Back Home.next.translation", "res://dialogue-data/mentah/Dialogue - Day 1 Back Home.en.translation", "res://dialogue-data/mentah/Dialogue - Day 1 Back Home.en.translation", "res://dialogue-data/mentah/Dialogue - Day 1 Back Home.en.translation", "res://dialogue-data/mentah/Dialogue - Day 1 Back Home.en.translation"]
+
+source_file="res://dialogue-data/mentah/Dialogue - Day 1 Back Home.csv"
+dest_files=["res://dialogue-data/mentah/Dialogue - Day 1 Back Home.speaker.translation", "res://dialogue-data/mentah/Dialogue - Day 1 Back Home.image.translation", "res://dialogue-data/mentah/Dialogue - Day 1 Back Home.text.translation", "res://dialogue-data/mentah/Dialogue - Day 1 Back Home.next.translation", "res://dialogue-data/mentah/Dialogue - Day 1 Back Home.en.translation", "res://dialogue-data/mentah/Dialogue - Day 1 Back Home.en.translation", "res://dialogue-data/mentah/Dialogue - Day 1 Back Home.en.translation", "res://dialogue-data/mentah/Dialogue - Day 1 Back Home.en.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

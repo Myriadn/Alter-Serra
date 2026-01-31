@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://7tiq4dsm2ktv"]
 
 [ext_resource type="Script" uid="uid://c2qrb5ncfwv8a" path="res://scripts/task/task_modular.gd" id="1_3tctq"]
+[ext_resource type="Texture2D" uid="uid://p61xbr3ruo6q" path="res://asset/Noda.png" id="2_w7rnn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vtrwo"]
 radius = 14.0
@@ -15,8 +16,14 @@ shape = SubResource("CircleShape2D_vtrwo")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2080301272]
 scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_w7rnn")
 
 [node name="TimerCleansing" type="Timer" parent="." unique_id=1891187782]
 wait_time = 0.1
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=1461631204]
+radius = 15.0
+affect_navigation_mesh = true
+carve_navigation_mesh = true
 
 [connection signal="timeout" from="TimerCleansing" to="." method="_on_timer_cleansing_timeout"]

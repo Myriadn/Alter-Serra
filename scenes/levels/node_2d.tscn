@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cdx24aoy1dsci" path="res://scenes/characters/Player.tscn" id="2_babg3"]
 [ext_resource type="PackedScene" uid="uid://7tiq4dsm2ktv" path="res://scenes/items/task_cleaning.tscn" id="3_ca3nq"]
 [ext_resource type="PackedScene" uid="uid://6ubccrn37qmf" path="res://scenes/items/box_seat.tscn" id="3_vtrwo"]
+[ext_resource type="PackedScene" uid="uid://dclef2xnuhnuy" path="res://scenes/ai/ai_horizontal.tscn" id="4_yg3ru"]
+[ext_resource type="PackedScene" uid="uid://bk074axjkhaow" path="res://scenes/ai/ai_vertical.tscn" id="5_ccpaa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3g1ys"]
 size = Vector2(145, 20)
@@ -45,9 +47,15 @@ position = Vector2(177, -59)
 position = Vector2(90, -137)
 task_type = 1
 
-[node name="Player" parent="EntityGroup" unique_id=2026500027 instance=ExtResource("2_babg3")]
-
 [node name="box_seat" parent="EntityGroup" unique_id=2036357280 instance=ExtResource("3_vtrwo")]
 position = Vector2(128, 10)
 physics_material_override = SubResource("PhysicsMaterial_ca3nq")
 constant_angular_velocity = 0.054367006
+
+[node name="Player" parent="EntityGroup" unique_id=2026500027 instance=ExtResource("2_babg3")]
+
+[node name="AIHorizontal" parent="EntityGroup" unique_id=2112976687 instance=ExtResource("4_yg3ru")]
+position = Vector2(104, -97)
+
+[node name="AIVertical" parent="EntityGroup" unique_id=1854918124 instance=ExtResource("5_ccpaa")]
+position = Vector2(-41, -81)

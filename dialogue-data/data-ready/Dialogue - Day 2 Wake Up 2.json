@@ -1,0 +1,13 @@
+{
+	"lanjut_1": {
+		"choices": [],
+		"speaker": "Serra",
+		"text": "Ini kamar kenapa nggak pernah rapih sih pas aku bangun tidur."
+	},
+	"start": {
+		"choices": [],
+		"next": "lanjut_1",
+		"speaker": "Serra",
+		"text": "Ihhh Sumpah dah."
+	}
+}

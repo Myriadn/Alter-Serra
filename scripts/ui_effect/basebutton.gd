@@ -25,6 +25,7 @@ var _direction : int = 0 :
 @export var durasi : float = 0.5
 @export var power : float = 0.5
 var dir : Vector2
+var next_id = ""
 
 func update_preview():
 	button.text = _text

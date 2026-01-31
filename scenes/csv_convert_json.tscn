@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://segw388x2g46"]
+
+[ext_resource type="Script" uid="uid://cyypfxeuwv76v" path="res://csv-to-json.gd" id="1_eniaa"]
+
+[node name="Node" type="Node" unique_id=1611291222]
+script = ExtResource("1_eniaa")
+dialogue_file = Array[String](["res://dialogue-data/mentah/Dialogue - Day 1 Wake Up.csv", "res://dialogue-data/mentah/Dialogue - Day 1 Go Work.csv", "res://dialogue-data/mentah/Dialogue - Day 1 Back Home.csv", "res://dialogue-data/mentah/Dialogue - Day 2 Wake Up 1.csv", "res://dialogue-data/mentah/Dialogue - Day 2 Wake Up 2.csv", "res://dialogue-data/mentah/Dialogue - Day 2 Go Work.csv", "res://dialogue-data/mentah/Dialogue - Day 2 Back Home.csv", "res://dialogue-data/mentah/Dialogue - Day 3 Wake Up.csv", "res://dialogue-data/mentah/Dialogue - Day 3 Bring Friend.csv", "res://dialogue-data/mentah/Dialogue - Day 4 Last.csv"])
+
+[node name="Label" type="Label" parent="." unique_id=1168737392]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.0
+offset_top = -21.0
+offset_right = 247.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2

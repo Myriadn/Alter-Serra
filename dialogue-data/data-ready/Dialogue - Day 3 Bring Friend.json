@@ -1,0 +1,31 @@
+{
+	"lanjut_1": {
+		"choices": [],
+		"next": "lanjut_2",
+		"speaker": "Tari",
+		"text": "Nggak masalah kok"
+	},
+	"lanjut_2": {
+		"choices": [],
+		"next": "lanjut_3",
+		"speaker": "Serra",
+		"text": "Lagipula aku juga penasaran sama apa yang kamu bilang di chat."
+	},
+	"lanjut_3": {
+		"choices": [],
+		"next": "lanjut_4",
+		"speaker": "Tari",
+		"text": "Tapi mau kan nemenin?"
+	},
+	"lanjut_4": {
+		"choices": [],
+		"speaker": "Serra",
+		"text": "Ayo aja!"
+	},
+	"start": {
+		"choices": [],
+		"next": "lanjut_1",
+		"speaker": "Serra",
+		"text": "Makasih ya udah mau bantuin aku"
+	}
+}

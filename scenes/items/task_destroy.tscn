@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cf532dvu16fhm"]
 
 [ext_resource type="Script" uid="uid://c2qrb5ncfwv8a" path="res://scripts/task/task_modular.gd" id="1_0suut"]
+[ext_resource type="Texture2D" uid="uid://b1ns5qv0y7ttm" path="res://asset/Barang Barang.png" id="2_j6t6d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vtrwo"]
 
@@ -14,3 +15,9 @@ task_type = 1
 shape = SubResource("CircleShape2D_vtrwo")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2080301272]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_j6t6d")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=961664632]
+radius = 15.0
+affect_navigation_mesh = true
