@@ -1,24 +1,81 @@
 [gd_scene format=3 uid="uid://cdx24aoy1dsci"]
 
 [ext_resource type="Script" uid="uid://bb6r6ql8qpfub" path="res://scripts/characters/player.gd" id="1_pq8s5"]
+[ext_resource type="Texture2D" uid="uid://cy4f0xwbtjwwo" path="res://asset/Character/Piyama/Piyama.png" id="2_gin2a"]
+[ext_resource type="Texture2D" uid="uid://c7xp8nm2xc8sm" path="res://asset/Side Asset/Sapu/Untitled178_20260131082627.png" id="3_7wym0"]
+[ext_resource type="Texture2D" uid="uid://ni1vw1o0mpol" path="res://asset/Side Asset/Sapu/Untitled178_20260131082634.png" id="4_gj1sn"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5s0wp"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7n8ao"]
+height = 26.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7wjm"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5s0wp"]
-size = Vector2(23.111965, 70.833694)
+[sub_resource type="CircleShape2D" id="CircleShape2D_7wym0"]
+radius = 13.176349
 
 [sub_resource type="Animation" id="Animation_pq8s5"]
 resource_name = "CLEANING BARANG"
 
 [sub_resource type="Animation" id="Animation_gin2a"]
 resource_name = "CLEANING NODA"
+length = 0.4
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_gin2a")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/hisTool:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_7wym0"), ExtResource("4_gj1sn")]
+}
+
+[sub_resource type="Animation" id="Animation_7wym0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_gin2a")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/hisTool:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_7wym0")]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7n8ao"]
 _data = {
 &"CLEANING BARANG": SubResource("Animation_pq8s5"),
-&"CLEANING NODA": SubResource("Animation_gin2a")
+&"CLEANING NODA": SubResource("Animation_gin2a"),
+&"RESET": SubResource("Animation_7wym0")
 }
 
 [sub_resource type="Gradient" id="Gradient_pq8s5"]
@@ -29,13 +86,14 @@ colors = PackedColorArray(1, 1, 1, 1)
 gradient = SubResource("Gradient_pq8s5")
 
 [node name="Player" type="CharacterBody2D" unique_id=2026500027 groups=["Player"]]
-scale = Vector2(0.52, 1)
 collision_mask = 12
 script = ExtResource("1_pq8s5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1755841828]
-position = Vector2(0, -9.799999)
-texture = SubResource("PlaceholderTexture2D_5s0wp")
+position = Vector2(0, -14)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("2_gin2a")
+flip_h = true
 
 [node name="ColorRect" type="ColorRect" parent="Sprite2D" unique_id=2020084473]
 offset_left = -9.615385
@@ -54,28 +112,32 @@ scale = Vector2(0.44617105, -0.049706902)
 color = Color(0.7213334, 0.56, 1, 1)
 metadata/_edit_use_anchors_ = true
 
+[node name="hisTool" type="Sprite2D" parent="Sprite2D" unique_id=549581760]
+position = Vector2(499.99988, 350)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_7wym0")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1101704533]
-position = Vector2(0, -9.799999)
-shape = SubResource("RectangleShape2D_j7wjm")
+position = Vector2(0, -13)
+shape = SubResource("CapsuleShape2D_7n8ao")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1350848883]
 position = Vector2(0, -9.799999)
 zoom = Vector2(3, 3)
 
-[node name="Node2D" type="Node2D" parent="." unique_id=2083549413]
-position = Vector2(9.536743e-07, -10)
-scale = Vector2(0.43999755, 0.23999886)
+[node name="interactPivot" type="Node2D" parent="." unique_id=2083549413]
+position = Vector2(9.536743e-07, -13)
+metadata/_edit_group_ = true
 
-[node name="Interactions" type="Area2D" parent="Node2D" unique_id=1952125279]
-position = Vector2(35.01, 0)
+[node name="Interactions" type="Area2D" parent="interactPivot" unique_id=1952125279]
+position = Vector2(25, 0)
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 0
 collision_mask = 6
+metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Interactions" unique_id=1399716977]
-position = Vector2(5.2447877, 3.3333402)
-scale = Vector2(0.99999964, 0.99999934)
-shape = SubResource("RectangleShape2D_5s0wp")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactPivot/Interactions" unique_id=1399716977]
+shape = SubResource("CircleShape2D_7wym0")
 
 [node name="HoldPosition" type="Marker2D" parent="." unique_id=2043182497]
 position = Vector2(16, 0)
@@ -126,8 +188,8 @@ fill_mode = 6
 nine_patch_stretch = true
 texture_progress = SubResource("GradientTexture1D_gin2a")
 
-[connection signal="area_entered" from="Node2D/Interactions" to="." method="_on_interactions_area_entered"]
-[connection signal="area_exited" from="Node2D/Interactions" to="." method="_on_interactions_area_exited"]
-[connection signal="body_entered" from="Node2D/Interactions" to="." method="_on_interactions_body_entered"]
-[connection signal="body_exited" from="Node2D/Interactions" to="." method="_on_interactions_body_exited"]
+[connection signal="area_entered" from="interactPivot/Interactions" to="." method="_on_interactions_area_entered"]
+[connection signal="area_exited" from="interactPivot/Interactions" to="." method="_on_interactions_area_exited"]
+[connection signal="body_entered" from="interactPivot/Interactions" to="." method="_on_interactions_body_entered"]
+[connection signal="body_exited" from="interactPivot/Interactions" to="." method="_on_interactions_body_exited"]
 [connection signal="timeout" from="TimerCleansing" to="." method="_on_timer_timeout"]

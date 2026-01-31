@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b04mqswdf8cnk"]
 
+[ext_resource type="Texture2D" uid="uid://bbjfbquhfda7i" path="res://asset/Background/BG Kamar saat siang.png" id="1_ccpaa"]
 [ext_resource type="PackedScene" uid="uid://cdx24aoy1dsci" path="res://scenes/characters/Player.tscn" id="2_babg3"]
 [ext_resource type="PackedScene" uid="uid://7tiq4dsm2ktv" path="res://scenes/items/task_cleaning.tscn" id="3_ca3nq"]
 [ext_resource type="PackedScene" uid="uid://6ubccrn37qmf" path="res://scenes/items/box_seat.tscn" id="3_vtrwo"]
@@ -7,29 +8,59 @@
 [ext_resource type="PackedScene" uid="uid://bk074axjkhaow" path="res://scenes/ai/ai_vertical.tscn" id="5_ccpaa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3g1ys"]
-size = Vector2(145, 20)
+size = Vector2(123, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cy280"]
+size = Vector2(192.5, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccpaa"]
+size = Vector2(80, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dwwa"]
+size = Vector2(26.5, 141)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ca3nq"]
 
-[node name="Node2D" type="Node2D" unique_id=1665564463]
+[node name="Day World" type="Node2D" unique_id=1665564463]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=880685584]
+texture = ExtResource("1_ccpaa")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1067448789]
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=1161333047]
-offset_left = -48.0
-offset_top = 1.0
-offset_right = 97.0
-offset_bottom = 21.0
+position = Vector2(-95, 50)
+collision_layer = 8
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=806484977]
-position = Vector2(24.5, 11)
+position = Vector2(35.5, 11)
 shape = SubResource("RectangleShape2D_3g1ys")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1439011370]
+position = Vector2(201, 10)
+shape = SubResource("RectangleShape2D_3g1ys")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=18559940]
+position = Vector2(97.75, -113)
+shape = SubResource("RectangleShape2D_cy280")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=144563848]
+position = Vector2(154, -81.5)
+shape = SubResource("RectangleShape2D_ccpaa")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1940446979]
+position = Vector2(-12.25, -69.5)
+shape = SubResource("RectangleShape2D_1dwwa")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=480779078]
+position = Vector2(207, -67)
+shape = SubResource("RectangleShape2D_1dwwa")
 
 [node name="EntityGroup" type="Node2D" parent="." unique_id=1537807400]
 y_sort_enabled = true
 
 [node name="task_cleaning" parent="EntityGroup" unique_id=1257969829 instance=ExtResource("3_ca3nq")]
-position = Vector2(31, -31)
+position = Vector2(46, 15)
+collision_layer = 2
 task_type = 1
 
 [node name="task_cleaning2" parent="EntityGroup" unique_id=978501197 instance=ExtResource("3_ca3nq")]
@@ -38,7 +69,6 @@ position = Vector2(-102, -43)
 [node name="task_cleaning3" parent="EntityGroup" unique_id=71212040 instance=ExtResource("3_ca3nq")]
 position = Vector2(-47, -154)
 collision_layer = 4
-task_type = 2
 
 [node name="task_cleaning4" parent="EntityGroup" unique_id=261699363 instance=ExtResource("3_ca3nq")]
 position = Vector2(177, -59)
@@ -53,6 +83,8 @@ physics_material_override = SubResource("PhysicsMaterial_ca3nq")
 constant_angular_velocity = 0.054367006
 
 [node name="Player" parent="EntityGroup" unique_id=2026500027 instance=ExtResource("2_babg3")]
+collision_mask = 8
+metadata/_edit_lock_ = true
 
 [node name="AIHorizontal" parent="EntityGroup" unique_id=2112976687 instance=ExtResource("4_yg3ru")]
 position = Vector2(104, -97)

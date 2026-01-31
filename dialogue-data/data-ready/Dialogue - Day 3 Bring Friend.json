@@ -7,23 +7,27 @@
 	},
 	"lanjut_2": {
 		"choices": [],
+		"image" : "",
 		"next": "lanjut_3",
-		"speaker": "Serra",
+		"speaker": "Tari",
 		"text": "Lagipula aku juga penasaran sama apa yang kamu bilang di chat."
 	},
 	"lanjut_3": {
 		"choices": [],
+		"image" : "res://asset/Illus for Dialog/Untitled181_20260131120435.png",
 		"next": "lanjut_4",
-		"speaker": "Tari",
+		"speaker": "Serra",
 		"text": "Tapi mau kan nemenin?"
 	},
 	"lanjut_4": {
 		"choices": [],
+		"image" : "",
 		"speaker": "Serra",
 		"text": "Ayo aja!"
 	},
 	"start": {
 		"choices": [],
+		"image" : "res://asset/Illus for Dialog/Untitled181_20260131120435.png",
 		"next": "lanjut_1",
 		"speaker": "Serra",
 		"text": "Makasih ya udah mau bantuin aku"

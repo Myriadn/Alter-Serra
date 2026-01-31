@@ -4,7 +4,7 @@
 
 [node name="Node" type="Node" unique_id=1611291222]
 script = ExtResource("1_eniaa")
-dialogue_file = Array[String](["res://dialogue-data/mentah/Dialogue - Day 1 Wake Up.csv", "res://dialogue-data/mentah/Dialogue - Day 1 Go Work.csv", "res://dialogue-data/mentah/Dialogue - Day 1 Back Home.csv", "res://dialogue-data/mentah/Dialogue - Day 2 Wake Up 1.csv", "res://dialogue-data/mentah/Dialogue - Day 2 Wake Up 2.csv", "res://dialogue-data/mentah/Dialogue - Day 2 Go Work.csv", "res://dialogue-data/mentah/Dialogue - Day 2 Back Home.csv", "res://dialogue-data/mentah/Dialogue - Day 3 Wake Up.csv", "res://dialogue-data/mentah/Dialogue - Day 3 Bring Friend.csv", "res://dialogue-data/mentah/Dialogue - Day 4 Last.csv"])
+dialogue_file = Array[String](["res://dialogue-data/mentah/Dialogue - Day 2 Back Home().csv"])
 
 [node name="Label" type="Label" parent="." unique_id=1168737392]
 anchors_preset = 8
