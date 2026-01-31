@@ -123,7 +123,6 @@ shape = SubResource("CapsuleShape2D_7n8ao")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1350848883]
 position = Vector2(0, -9.799999)
-zoom = Vector2(3, 3)
 
 [node name="interactPivot" type="Node2D" parent="." unique_id=2083549413]
 position = Vector2(9.536743e-07, -13)

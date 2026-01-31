@@ -23,9 +23,14 @@ GlobalHandle="*uid://mi4ov4u8fq8q"
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+<<<<<<< HEAD
 window/size/mode=2
 window/size/window_width_override=640
 window/size/window_height_override=360
+=======
+window/size/window_width_override=1280
+window/size/window_height_override=720
+>>>>>>> 81ddb07b5b49f525dfc397f6713fa8cca204cf23
 window/stretch/mode="canvas_items"
 
 [dotnet]
