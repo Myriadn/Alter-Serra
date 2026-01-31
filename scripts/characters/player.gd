@@ -112,11 +112,11 @@ func drop_item():
 	elif held_item is Node and held_item.has_method("get"):
 		item_name = held_item.get("obj_name") if held_item.get("obj_name") else "BOX"
 
-	print("🎯 Trying to drop: ", item_name)
+	# print("Trying to drop: ", item_name)
 
 	# Check jika ada box_seat nearby
 	if available_drop_place:
-		print("📍 Drop place detected: ", available_drop_place.name)
+		# print("Drop place detected: ", available_drop_place.name)
 
 		# Check jika box_seat
 		if available_drop_place is BoxSeat:
@@ -130,14 +130,14 @@ func drop_item():
 					if i.has_method("_clear_holder"):
 						i._clear_holder()
 
-				print("✅ Item placed in box seat!")
+				# print("✅ Item placed in box seat!")
 				return
 			else:
 				print("❌ Cannot place ", item_name, " in this box seat")
 				return
 
 	# Fallback: Drop di tempat random
-	print("📦 Dropping at position (no box seat)")
+	# print("📦 Dropping at position (no box seat)")
 	var inst = TASK_CLEANING.instantiate()
 	inst.task_type = get_task_type_from_name(item_name)
 	inst.global_position = drop_position.global_position
@@ -149,8 +149,8 @@ func drop_item():
 		if i.has_method("_clear_holder"):
 			i._clear_holder()
 
-func get_task_type_from_name(name: String) -> int:
-	match name:
+func get_task_type_from_name(nama: String) -> int:
+	match nama:
 		"BOX": return 2
 		"RACK": return 3
 		"BARANG": return 1
@@ -201,13 +201,13 @@ func update_facing_direction(direction: Vector2):
 		if direction.y > 0:
 			# Ngadep bawah
 			sprite.scale.x = abs(sprite.scale.x)  # Reset flip
-			pivot.rotation_degrees = -90.0
+			pivot.rotation_degrees = 90.0
 			hold_position.position = Vector2(0, offset_distance)
 			drop_position.position = Vector2(0, offset_distance + 10)
 		else:
 			# Ngadep atas
 			sprite.scale.x = abs(sprite.scale.x)  # Reset flip
-			pivot.rotation_degrees = 90.0
+			pivot.rotation_degrees = -90.0
 			hold_position.position = Vector2(0, -offset_distance)
 			drop_position.position = Vector2(0, -offset_distance - 10)
 

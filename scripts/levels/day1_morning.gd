@@ -3,10 +3,12 @@ extends Node2D
 @onready var dialog_control = $CanvasLayer/DialogueControl
 @onready var level_manager = $LevelManager
 @onready var player = $Player
+@onready var spawn_point = $Marker2D
 
 var dialog_finished_first: bool = false
 
 func _ready():
+	player.global_position = spawn_point.global_position
 	# Disable player movement saat dialog
 	player.set_physics_process(false)
 

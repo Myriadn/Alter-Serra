@@ -127,7 +127,7 @@ func type_text(node: Dictionary):
 # =========================
 # INPUT (LMB)
 # =========================
-func _input(event):
+func _input(_event):
 	if not visible:
 		return
 
