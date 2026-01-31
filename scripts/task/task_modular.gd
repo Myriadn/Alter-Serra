@@ -53,12 +53,20 @@ func _ready() -> void:
 	update_preview()
 
 func update_preview():
+	if not sprite:
+		sprite = get_node_or_null("Sprite2D")
 	if task_type in TASK_CONFIG:
 		var config = TASK_CONFIG[task_type]
-		sprite.texture = config["texture"]
-		set_collision_layer_value(config["collision_layer"], true)
-	else:
-		push_error("Unknown task type: ", task_type)
+		if sprite:
+			sprite.texture = config["texture"]
+			if sprite.texture:
+				var collision_shape = get_node_or_null("CollisionShape2D")
+				if collision_shape and collision_shape.shape:
+					var shape_size = collision_shape.shape.get_rect().size
+					var texture_size = sprite.texture.get_size()
+
+					# Scale sprite to fit collision
+					sprite.scale = shape_size / texture_size
 
 func can_be_cleaned() -> bool: # objek yang bisa di bersihkan
 	if task_type in TASK_CONFIG:
