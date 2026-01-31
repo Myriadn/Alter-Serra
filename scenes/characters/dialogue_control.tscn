@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cn3pjhi6lx4c1"]
 
-[ext_resource type="Texture2D" uid="uid://chg503nwyulu3" path="res://icon.svg" id="1_1wjnj"]
 [ext_resource type="Script" uid="uid://cvaxlgflr5j1s" path="res://scripts/characters/dialogue_control.gd" id="1_i32hx"]
+[ext_resource type="Texture2D" uid="uid://cgar2piq847el" path="res://asset/Illus for Dialog/Untitled181_20260131120339.png" id="2_i32hx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xejum"]
 font_size = 15
@@ -41,33 +41,27 @@ color = Color(0, 0, 0, 0.31764707)
 
 [node name="player_name" type="Label" parent="anchor" unique_id=122462284]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -277.0
-offset_top = -44.5
-offset_right = -50.0
-offset_bottom = -22.5
+offset_left = -179.0
+offset_top = 5.0
+offset_right = 48.0
+offset_bottom = 27.0
 grow_horizontal = 2
-grow_vertical = 2
 text = "TEST NAME"
 label_settings = SubResource("LabelSettings_xejum")
 
 [node name="dialogue" type="Label" parent="anchor" unique_id=2021536816]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -275.0
-offset_top = -21.5
-offset_right = 276.0
-offset_bottom = 18.5
+offset_left = -180.0
+offset_top = 30.0
+offset_right = 275.0
+offset_bottom = 70.0
 grow_horizontal = 2
-grow_vertical = 2
 text = "ini tes dialog yang tidak akan pernah final askkjdhawiughd aiuwdhaiuwhd aiuwhd iawghduiy awgdyugaw dgyas dgywaduyags asuidgwaud asgdywa gdyugawsuydg wauygdyuadg yuwagdyuwa duygayudg awuygdyuagd auygda "
 label_settings = SubResource("LabelSettings_1wjnj")
 autowrap_mode = 3
@@ -80,20 +74,20 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -206.5
+offset_left = -156.0
 offset_top = -32.0
-offset_right = 206.5
+offset_right = 257.0
 offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="potrait" type="TextureRect" parent="." unique_id=1601044166]
-layout_mode = 0
-anchor_left = 0.053125
-anchor_top = 0.23055555
-anchor_right = 0.2203125
-anchor_bottom = 0.73333335
-texture = ExtResource("1_1wjnj")
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.54444444
+anchor_right = 0.2453125
+anchor_bottom = 1.0112675
+texture = ExtResource("2_i32hx")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true

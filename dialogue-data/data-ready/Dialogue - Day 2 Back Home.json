@@ -1,10 +1,12 @@
 {
-	"\"": {
-		"choices": [],
-		"speaker": "",
-		"text": ""
-	},
 	"lanjut_1": {
+		"choices": [],
+		"image": "res://asset/Illus for Dialog/Untitled181_20260131113408.png",
+		"next": "lanjut_2",
+		"speaker": "Serra",
+		"text": "Mana masalah ini kamar masih belum kelar lagi"
+	},
+	"lanjut_2": {
 		"choices": [
 			{
 				"next": "pilih_1",
@@ -15,33 +17,41 @@
 				"text": "Bodo amat lah"
 			}
 		],
+		"image": "res://asset/Illus for Dialog/Untitled181_20260131115421.png",
 		"speaker": "Serra",
-		"text": "Mana masalah ini kamar masih belum kelar lagi"
+		"text": "Hmmmmm"
 	},
 	"lanjut_pilih_1": {
 		"choices": [],
+		"image": "res://asset/Illus for Dialog/Untitled181_20260131115421.png",
 		"speaker": "Serra",
+		"next" : "end_1",
 		"text": "Nggak usah dipikirin aja mending"
 	},
 	"lanjut_pilih_2": {
 		"choices": [],
+		"image": "res://asset/Illus for Dialog/Untitled181_20260131115421.png",
 		"speaker": "Serra",
+		"next" : "end_2",
 		"text": "Mumpung besok Libur juga."
 	},
 	"pilih_2": {
 		"choices": [],
+		"image": "res://asset/Illus for Dialog/Untitled181_20260131115421.png",
 		"next": "lanjut_pilih_1",
 		"speaker": "Serra",
 		"text": "Yaudah lah bener kataku di awal."
 	},
 	"pilih_1": {
 		"choices": [],
+		"image": "res://asset/Illus for Dialog/Untitled181_20260131115421.png",
 		"next": "lanjut_pilih_2",
 		"speaker": "Serra",
 		"text": "Kalau gini mending Begadang lah."
 	},
 	"start": {
 		"choices": [],
+		"image": "res://asset/Illus for Dialog/Untitled181_20260131113408.png",
 		"next": "lanjut_1",
 		"speaker": "Serra",
 		"text": "Ampun dah; capek banget hari ini."
