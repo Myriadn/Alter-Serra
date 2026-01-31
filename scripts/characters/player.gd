@@ -103,17 +103,59 @@ func _set_cleansing_state(state : bool):
 	cleansing_progress.visible = state
 
 func drop_item():
-	if is_holding:
-		if available_drop_place:
-			available_drop_place.set_item(true)
-		else :
-			var inst = TASK_CLEANING.instantiate()
-			inst.task_type = inst.task_name.BOX
-			inst.global_position = drop_position.global_position
-			get_parent().add_child(inst)
-		is_holding = false
-		for i in hold_position.get_children():
+	if not is_holding or not held_item:
+		return
+
+	var item_name = "BOX"  # Default
+	if held_item.get("obj_name"):
+		item_name = held_item.obj_name
+	elif held_item is Node and held_item.has_method("get"):
+		item_name = held_item.get("obj_name") if held_item.get("obj_name") else "BOX"
+
+	print("🎯 Trying to drop: ", item_name)
+
+	# Check jika ada box_seat nearby
+	if available_drop_place:
+		print("📍 Drop place detected: ", available_drop_place.name)
+
+		# Check jika box_seat
+		if available_drop_place is BoxSeat:
+			if available_drop_place.can_place_item(item_name):
+				# Place di box_seat
+				available_drop_place.set_item(true)
+
+				# Clear held item
+				is_holding = false
+				for i in hold_position.get_children():
+					if i.has_method("_clear_holder"):
+						i._clear_holder()
+
+				print("✅ Item placed in box seat!")
+				return
+			else:
+				print("❌ Cannot place ", item_name, " in this box seat")
+				return
+
+	# Fallback: Drop di tempat random
+	print("📦 Dropping at position (no box seat)")
+	var inst = TASK_CLEANING.instantiate()
+	inst.task_type = get_task_type_from_name(item_name)
+	inst.global_position = drop_position.global_position
+	get_parent().add_child(inst)
+
+	# Clear held item
+	is_holding = false
+	for i in hold_position.get_children():
+		if i.has_method("_clear_holder"):
 			i._clear_holder()
+
+func get_task_type_from_name(name: String) -> int:
+	match name:
+		"BOX": return 2
+		"RACK": return 3
+		"BARANG": return 1
+		"NODA": return 0
+		_: return 2
 
 func _physics_process(_delta: float) -> void:
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")

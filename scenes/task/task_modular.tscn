@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://task_modular_scene"]
+
+[ext_resource type="Script" path="res://scripts/task/task_modular.gd" id="1"]
+
+[sub_resource type="RectangleShape2D" id="shape1"]
+size = Vector2(30, 30)
+
+[node name="TaskModular" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1")
+task_type = 0
+cleaning_duration = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("shape1")
+
+[node name="TimerCleansing" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = false
+
+[connection signal="timeout" from="TimerCleansing" to="." method="_on_timer_cleansing_timeout"]

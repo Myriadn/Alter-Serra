@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://crlktn7hwfw0r"]
+
+[ext_resource type="PackedScene" uid="uid://cdx24aoy1dsci" path="res://scenes/characters/Player.tscn" id="1_l236k"]
+[ext_resource type="Script" uid="uid://dgypbcamgdsh7" path="res://scripts/master/level_manager.gd" id="2_jxr7d"]
+[ext_resource type="PackedScene" uid="uid://6ubccrn37qmf" path="res://scenes/items/box_seat.tscn" id="3_jxr7d"]
+
+[node name="Daying" type="Node2D" unique_id=1648807907]
+
+[node name="Player" parent="." unique_id=2026500027 instance=ExtResource("1_l236k")]
+
+[node name="LevelManager" type="Node" parent="." unique_id=1908959364]
+script = ExtResource("2_jxr7d")
+spawn_area_min = Vector2(-300, -200)
+spawn_area_max = Vector2(300, 200)
+
+[node name="box_seat" parent="." unique_id=2036357280 instance=ExtResource("3_jxr7d")]
+position = Vector2(126.73334, -30.884987)
