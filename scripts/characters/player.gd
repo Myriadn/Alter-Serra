@@ -4,7 +4,6 @@ class_name Player
 @onready var interaction_area = $Node2D/Interactions
 @onready var hold_position = $HoldPosition
 @onready var drop_position: Marker2D = $DropPosition
-@onready var interact_pivot: Node2D = $interactPivot
 
 @onready var sprite = $Sprite2D
 @onready var color_rect = $Sprite2D/ColorRect
@@ -188,13 +187,13 @@ func update_facing_direction(direction: Vector2):
 		if direction.x > 0:
 			# Ngadep kanan
 			sprite.scale.x = abs(sprite.scale.x)
-			interact_pivot.rotation_degrees = 0
+			interaction_area.position = Vector2(offset_distance, 0)
 			hold_position.position = Vector2(offset_distance, 0)
 			drop_position.position = Vector2(offset_distance + 10, 0)
 		else:
 			# Ngadep kiri
 			sprite.scale.x = -abs(sprite.scale.x)
-			interact_pivot.rotation_degrees = 180
+			interaction_area.position = Vector2(-offset_distance, 0)
 			hold_position.position = Vector2(-offset_distance, 0)
 			drop_position.position = Vector2(-offset_distance - 10, 0)
 	else:
@@ -202,13 +201,13 @@ func update_facing_direction(direction: Vector2):
 		if direction.y > 0:
 			# Ngadep bawah
 			sprite.scale.x = abs(sprite.scale.x)  # Reset flip
-			interact_pivot.rotation_degrees = 90
+			interaction_area.position = Vector2(0, offset_distance)
 			hold_position.position = Vector2(0, offset_distance)
 			drop_position.position = Vector2(0, offset_distance + 10)
 		else:
 			# Ngadep atas
 			sprite.scale.x = abs(sprite.scale.x)  # Reset flip
-			interact_pivot.rotation_degrees = -90
+			interaction_area.position = Vector2(0, -offset_distance)
 			hold_position.position = Vector2(0, -offset_distance)
 			drop_position.position = Vector2(0, -offset_distance - 10)
 

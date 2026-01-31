@@ -1,7 +1,6 @@
 {
 	"lanjut_1": {
 		"choices": [],
-		"image" : "res://asset/Illus for Dialog/Untitled181_20260131120435.png",
 		"next": "lanjut_2",
 		"speaker": "Serra",
 		"text": "Gimana? Udah ketemu pelakunya?"
@@ -14,21 +13,18 @@
 	},
 	"lanjut_3": {
 		"choices": [],
-		"image" : "res://asset/Illus for Dialog/Untitled181_20260131120409.png",
 		"next": "lanjut_4",
 		"speaker": "Serra",
 		"text": "Beneran? Siapa?"
 	},
 	"lanjut_4": {
 		"choices": [],
-		"image" : "",
 		"next": "lanjut_5",
 		"speaker": "Tari",
 		"text": "Nih depan mataku."
 	},
 	"lanjut_5": {
 		"choices": [],
-		"image" : "res://asset/Illus for Dialog/Untitled181_20260131120409.png",
 		"next": "lanjut_6",
 		"speaker": "Serra",
 		"text": "Lah Seriusan?"
@@ -40,7 +36,6 @@
 	},
 	"start": {
 		"choices": [],
-		"image" : "res://asset/Illus for Dialog/Untitled181_20260131120339.png",
 		"next": "lanjut_1",
 		"speaker": "Serra",
 		"text": "Hoammm"

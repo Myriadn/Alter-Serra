@@ -1,15 +1,8 @@
 {
-	"lanjut_1": {
-		"choices": [],
-		"image": "res://asset/Illus for Dialog/Untitled181_20260131120409.png",
-		"speaker": "Serra",
-		"text": "LOH; Kok Kamarku berantakan?"
-	},
 	"start": {
 		"choices": [],
-		"image": "res://asset/Illus for Dialog/Untitled181_20260131120339.png",
-		"next": "lanjut_1",
+		"image": "res://asset/Barang Barang.png",
 		"speaker": "Serra",
-		"text": "Hoammmm"
+		"text": "LOH; Kok Kamarku berantakan?"
 	}
 }

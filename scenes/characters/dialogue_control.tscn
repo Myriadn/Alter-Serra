@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cn3pjhi6lx4c1"]
 
+[ext_resource type="Texture2D" uid="uid://chg503nwyulu3" path="res://icon.svg" id="1_1wjnj"]
 [ext_resource type="Script" uid="uid://cvaxlgflr5j1s" path="res://scripts/characters/dialogue_control.gd" id="1_i32hx"]
-[ext_resource type="Texture2D" uid="uid://cgar2piq847el" path="res://asset/Illus for Dialog/Untitled181_20260131120339.png" id="2_i32hx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xejum"]
 font_size = 15
@@ -46,10 +46,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -163.0
-offset_top = -46.5
-offset_right = 64.0
-offset_bottom = -24.5
+offset_left = -277.0
+offset_top = -44.5
+offset_right = -50.0
+offset_bottom = -22.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "TEST NAME"
@@ -62,7 +62,7 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -164.0
+offset_left = -275.0
 offset_top = -21.5
 offset_right = 276.0
 offset_bottom = 18.5
@@ -80,21 +80,20 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -162.0
-offset_top = -33.0
-offset_right = 251.0
-offset_bottom = -10.0
+offset_left = -206.5
+offset_top = -32.0
+offset_right = 206.5
+offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="potrait" type="TextureRect" parent="." unique_id=1601044166]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0125
-anchor_top = 0.53333336
-anchor_right = 0.271875
-anchor_bottom = 1.025
-texture = ExtResource("2_i32hx")
+layout_mode = 0
+anchor_left = 0.053125
+anchor_top = 0.23055555
+anchor_right = 0.2203125
+anchor_bottom = 0.73333335
+texture = ExtResource("1_1wjnj")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true

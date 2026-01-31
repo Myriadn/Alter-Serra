@@ -1,8 +1,0 @@
-id,speaker,image,text,next,choice_1,next_1,choice_2,next_2
-start,Serra,p,Ampun dah; capek banget hari ini.,lanjut_1,,,,
-lanjut_1,Serra,p,Mana masalah ini kamar masih belum kelar lagi,,Coba begadang deh,pilih_1,Bodo amat lah,pilih_2
-pilih_1,Serra,p,Yaudah lah bener kataku di awal.,"lanjut_pilih_1
-",,,,
-lanjut_pilih_1,Serra,p,Nggak usah dipikirin aja mending,,,,,
-pilih_2,Serra,p,Kalau gini mending Begadang lah.,lanjut_pilih_2,,,,
-lanjut_pilih_2,Serra,p,Mumpung besok Libur juga.,,,,,

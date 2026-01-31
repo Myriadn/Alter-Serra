@@ -1,8 +1,5 @@
 extends Control
 
-signal end_1
-signal end_2
-
 @export var dialog_json_path: String = ""
 @export var start_id: String = "start"
 @export var type_speed: float = 0.03
@@ -55,7 +52,7 @@ func start_dialog():
 func show_dialog():
 	if not dialog_data.has(current_id):
 		push_error("Dialog ID tidak ditemukan: " + current_id)
-		end_dialog(0)
+		end_dialog()
 		return
 
 	var node: Dictionary = dialog_data[current_id]
@@ -140,15 +137,10 @@ func on_click_continue():
 
 	# lanjut ke next
 	if node.has("next"):
-		if node["next"] == "end_1":
-			end_dialog(0)
-		elif node["next"] == "end_2":
-			end_dialog(1)
-		else :
-			current_id = node["next"]
-			show_dialog()
+		current_id = node["next"]
+		show_dialog()
 	else:
-		end_dialog(0)
+		end_dialog()
 
 
 # =========================
@@ -181,11 +173,6 @@ func clear_choices():
 # =========================
 # END
 # =========================
-func end_dialog(state : int):
+func end_dialog():
 	visible = false
-	if state == 0 :
-		emit_signal("end_1")
-		print("cannon ending")
-	elif state == 1 :
-		print("true ending")
 	print("Dialog selesai")

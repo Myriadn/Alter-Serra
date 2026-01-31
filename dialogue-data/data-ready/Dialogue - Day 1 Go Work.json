@@ -1,14 +1,15 @@
 {
 	"lanjut_1": {
 		"choices": [],
-		"image": "res://asset/Illus for Dialog/Untitled181_20260131120409.png",
+		"image": "res://asset/Barang Barang.png",
 		"speaker": "Serra",
 		"text": "Sekarang waktunya untuk kerja"
 	},
 	"start": {
 		"choices": [],
-		"image": "res://asset/Illus for Dialog/Untitled181_20260131115421.png",
+		"image": "res://asset/Barang Barang.png",
+		"next": "Itu bisa dipikir belakangan.\"",
 		"speaker": "Serra",
-		"text": "Yaudahlah Itu bisa dipikir belakangan."
+		"text": "\"Yaudahlah"
 	}
 }
