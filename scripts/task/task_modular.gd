@@ -3,7 +3,7 @@ extends StaticBody2D
 
 @onready var timer_cleansing: Timer = $TimerCleansing
 @onready var sprite: Sprite2D = $Sprite2D
-enum task_name {NODA, BARANG, BOX}
+enum task_name {NODA, BARANG, BOX, RACK}
 @export var task_type : task_name = task_name.NODA :
 	set(val):
 		task_type = val
@@ -16,22 +16,62 @@ enum task_name {NODA, BARANG, BOX}
 const BARANG = preload("uid://b1ns5qv0y7ttm")
 const BOX = preload("uid://5jwrcqoqsm4i")
 const NODA = preload("uid://p61xbr3ruo6q")
+const RACK = preload("uid://cro2141m6rpk7")
+
+# task config
+# Collision layer info:
+	# 2 for cleanble,
+	# 3 for pickup things
+const TASK_CONFIG = {
+	task_name.NODA: {
+		"texture": NODA,
+		"collision_layer": 2,
+		"cleanable": true,
+		"pickable": false
+	},
+	task_name.BARANG: {
+		"texture": BARANG,
+		"collision_layer": 2,
+		"cleanable": true,
+		"pickable": false
+	},
+	task_name.BOX: {
+		"texture": BOX,
+		"collision_layer": 3,
+		"cleanable": false,
+		"pickable": true
+	},
+	task_name.RACK: {
+		"texture": RACK,
+		"collision_layer": 2,
+		"cleanable": true,
+		"pickable": false
+	}
+}
 
 func _ready() -> void:
 	update_preview()
 
 func update_preview():
-	if task_type == task_name.NODA:
-		set_collision_layer_value(2, true)
-		sprite.texture = NODA
-	elif task_type == task_name.BARANG:
-		set_collision_layer_value(2, true)
-		sprite.texture = BARANG
-	elif task_type == task_name.BOX:
-		set_collision_layer_value(3, true)
-		sprite.texture = BOX
-	else :
-		return
+	if task_type in TASK_CONFIG:
+		var config = TASK_CONFIG[task_type]
+		sprite.texture = config["texture"]
+		set_collision_layer_value(config["collision_layer"], true)
+	else:
+		push_error("Unknown task type: ", task_type)
+
+func can_be_cleaned() -> bool: # objek yang bisa di bersihkan
+	if task_type in TASK_CONFIG:
+		return TASK_CONFIG[task_type].get("cleanable", false)
+	return false
+
+func can_be_picked() -> bool: # fungsi buat objek yang bisa di interaksi
+	if task_type in TASK_CONFIG:
+		return TASK_CONFIG[task_type].get("pickable", false)
+	return false
+
+func get_task_name_string() -> String: # buat keterbacaan task
+	return task_name.keys()[task_type]
 
 func pick_box(_body):
 	queue_free()

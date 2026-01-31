@@ -10,6 +10,7 @@ class_name Player
 @onready var anim: AnimationPlayer = $anim
 @onready var timer_cleansing: Timer = $TimerCleansing
 @onready var cleansing_progress: TextureProgressBar = $CleansingProgress
+
 const HOLD_INTSANCE = preload("uid://coj5g74jgljvy")
 const TASK_CLEANING = preload("uid://7tiq4dsm2ktv")
 
@@ -35,23 +36,44 @@ func _input(event):
 func interact():
 	if is_holding or is_cleansing:
 		return
+
 	for body in obj_touched:
-		if body.task_type == body.task_name.NODA:
+		# Check if cleanable (NODA, BARANG)
+		if body.has_method("can_be_cleaned") and body.can_be_cleaned():
 			cleansing(body)
-		elif body.task_type == body.task_name.BARANG :
-			cleansing(body)
-		elif body.task_type == body.task_name.BOX :
-			print("Anjay")
-			var inst = HOLD_INTSANCE.instantiate()
-			held_item = inst
-			inst.obj_name = body.task_name.keys()[body.task_type]
-			inst.image = load("uid://5jwrcqoqsm4i")
-			hold_position.add_child(inst)
-			body.pick_box(self)
-			is_holding = true
-		else :
-			pass
-		break
+			break
+
+		# Check if pickable (BOX, RACK)
+		elif body.has_method("can_be_picked") and body.can_be_picked():
+			pickup_item(body)
+			break
+
+
+func pickup_item(body):
+	print("📦 Picking up: ", body.task_name.keys()[body.task_type])
+
+	var inst = HOLD_INTSANCE.instantiate()
+	held_item = inst
+	inst.obj_name = body.task_name.keys()[body.task_type]
+
+	# Set texture based on type (bisa pakai dictionary nanti)
+	var texture_uid = get_pickup_texture_uid(body)
+	inst.image = load(texture_uid)
+
+	hold_position.add_child(inst)
+	body.pick_box(self)
+	is_holding = true
+
+func get_pickup_texture_uid(body) -> String: # texture uid getter
+	if body.has_method("get_task_name_string"):
+		match body.get_task_name_string():
+			"BOX":
+				return "uid://5jwrcqoqsm4i"
+			"RACK":
+				return "uid://cro2141m6rpk7"
+			_:
+				return "uid://5jwrcqoqsm4i"  # Default
+	return ""
 
 var clean_timer = 0.0
 var saved_objek_interact
