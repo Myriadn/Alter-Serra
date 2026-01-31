@@ -1,5 +1,8 @@
 extends Control
 
+signal dialog_finished
+signal choice_selected(choice_id: String)
+
 @export var dialog_json_path: String = ""
 @export var start_id: String = "start"
 @export var type_speed: float = 0.03
@@ -20,14 +23,28 @@ var can_continue: bool = false
 # READY
 # =========================
 func _ready():
+	# load_dialog()
+	visible = false
+	# start_dialog()
+
+
+func play_dialog(json_path: String = "", start_from: String = "start"):
+	if json_path != "":
+		dialog_json_path = json_path
+	if start_from != "":
+		start_id = start_from
 	load_dialog()
 	start_dialog()
-
 
 # =========================
 # LOAD JSON
 # =========================
 func load_dialog():
+	if dialog_json_path == "":
+		push_warning("Dialog path kosong!")
+		end_dialog()
+		return
+
 	var file := FileAccess.open(dialog_json_path, FileAccess.READ)
 	if file == null:
 		push_error("Dialog JSON tidak ditemukan!")
@@ -161,7 +178,9 @@ func show_choices(choices: Array):
 
 
 func _on_choice_pressed(btn):
-	current_id = btn.get_parent().next_id
+	var next_id = btn.get_parent().next_id
+	choice_selected.emit(next_id)
+	current_id = next_id
 	show_dialog()
 
 
@@ -176,3 +195,4 @@ func clear_choices():
 func end_dialog():
 	visible = false
 	print("Dialog selesai")
+	dialog_finished.emit()

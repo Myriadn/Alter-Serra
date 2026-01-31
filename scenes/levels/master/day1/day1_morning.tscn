@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://bg4k4rkw2qlbh"]
 
+[ext_resource type="Script" uid="uid://b0jj5kmnjhadi" path="res://scripts/levels/day1_morning.gd" id="1_58qdr"]
 [ext_resource type="Texture2D" uid="uid://diuxhicxsg8kr" path="res://assets/levels/background/no_interior.png" id="1_ajp4n"]
 [ext_resource type="PackedScene" uid="uid://cdx24aoy1dsci" path="res://scenes/characters/Player.tscn" id="2_ioj4g"]
 [ext_resource type="PackedScene" uid="uid://jcn83penk3wp" path="res://scenes/levels/prototype/level_manager.tscn" id="3_n0474"]
+[ext_resource type="PackedScene" uid="uid://cn3pjhi6lx4c1" path="res://scenes/characters/dialogue_control.tscn" id="4_3fixl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ioj4g"]
 size = Vector2(240, 63.21039)
 
 [node name="Day1Morning" type="Node2D" unique_id=837071044]
+script = ExtResource("1_58qdr")
 
 [node name="NoInterior" type="Sprite2D" parent="." unique_id=1456679427]
 texture = ExtResource("1_ajp4n")
@@ -19,7 +22,8 @@ position = Vector2(0, -1)
 collision_layer = 8
 
 [node name="WallTop" type="CollisionShape2D" parent="StaticBody2D" unique_id=1145349518]
-position = Vector2(2, -70)
+position = Vector2(0, -77)
+scale = Vector2(1, 0.56)
 shape = SubResource("RectangleShape2D_ioj4g")
 
 [node name="WallBottom" type="CollisionShape2D" parent="StaticBody2D" unique_id=1883885001]
@@ -53,3 +57,8 @@ position = Vector2(-65, 0)
 [node name="LevelManager" parent="." unique_id=167112185 instance=ExtResource("3_n0474")]
 spawn_area_min = Vector2(-100, -50)
 spawn_area_max = Vector2(100, 50)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=905839060]
+
+[node name="DialogueControl" parent="CanvasLayer" unique_id=1915989084 instance=ExtResource("4_3fixl")]
+dialog_json_path = "   res://dialogue-data/data-ready/Dialogue - Day 1 Wake Up.json"
