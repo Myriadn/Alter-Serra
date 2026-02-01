@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GlobalHandle="*uid://mi4ov4u8fq8q"
 DayManager="*uid://otuuevic32q5"
+Fade="*uid://d4f006h7nehdw"
 
 [display]
 

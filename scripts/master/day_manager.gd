@@ -4,14 +4,14 @@ signal scene_changing(next_scene: String)
 
 # Urutan scenes (hardcode aja)
 const SCENE_ORDER = [
-	"res://scenes/levels/day1/day1_morning.tscn",
-	"res://scenes/levels/day1/day1_night.tscn",
-	"res://scenes/levels/day2/day2_morning.tscn",
-	"res://scenes/levels/day2/day2_night.tscn",
-	"res://scenes/levels/day3/day3_boss.tscn",
-	"res://scenes/levels/day3/day3_morning.tscn",
-	"res://scenes/levels/day4/day4_boss.tscn",
-	"res://scenes/levels/day4/day4_ending.tscn",
+	"res://scenes/levels/master/day1/day1_morning.tscn",
+	"res://scenes/levels/master/day1/day1_night.tscn",
+	"res://scenes/levels/master/day2/day2_morning.tscn",
+	"res://scenes/levels/master/day2/day2_night.tscn",
+	"res://scenes/levels/master/day3/day3_boss.tscn",
+	"res://scenes/levels/master/day3/day3_morning.tscn",
+	"res://scenes/levels/master/day4/day4_boss.tscn",
+	"res://scenes/levels/master/day4/day4_ending.tscn",
 ]
 
 var current_scene_index: int = 0

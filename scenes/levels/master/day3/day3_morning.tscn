@@ -1,3 +1,137 @@
-[gd_scene format=3 uid="uid://be1i8aeaj3eu1"]
+[gd_scene format=3 uid="uid://dmjnwm0i1cns7"]
 
-[node name="Day1Morning" type="Node2D" unique_id=837071044]
+[ext_resource type="Script" uid="uid://buafdb6k2mmpw" path="res://scripts/levels/day1_night.gd" id="1_5icvy"]
+[ext_resource type="Texture2D" uid="uid://diuxhicxsg8kr" path="res://assets/levels/background/no_interior.png" id="2_q2uf0"]
+[ext_resource type="Texture2D" uid="uid://cxwee24rnnicq" path="res://assets/levels/environment/kasur.tres" id="3_xuqur"]
+[ext_resource type="Texture2D" uid="uid://bn45cr8836k6g" path="res://assets/levels/environment/meja.tres" id="4_t06lx"]
+[ext_resource type="Texture2D" uid="uid://dbm88qwhsbj0e" path="res://assets/levels/environment/bangku.tres" id="5_6im8i"]
+[ext_resource type="PackedScene" uid="uid://ox3vvjt0cv1u" path="res://scenes/task/task_modular.tscn" id="6_501d8"]
+[ext_resource type="Texture2D" uid="uid://bw4mca7k5va8q" path="res://assets/levels/environment/kertas_acak_1.tres" id="7_qpixb"]
+[ext_resource type="Texture2D" uid="uid://4pqxuhd5476d" path="res://assets/levels/environment/kertas_acak_2.tres" id="8_31xgu"]
+[ext_resource type="PackedScene" uid="uid://cdx24aoy1dsci" path="res://scenes/characters/Player.tscn" id="9_6fb3b"]
+[ext_resource type="PackedScene" uid="uid://jcn83penk3wp" path="res://scenes/levels/prototype/level_manager.tscn" id="10_gk27s"]
+[ext_resource type="PackedScene" uid="uid://cn3pjhi6lx4c1" path="res://scenes/characters/dialogue_control.tscn" id="11_oebl6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44kl2"]
+size = Vector2(42.000004, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ioj4g"]
+size = Vector2(240, 63.21039)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b37cw"]
+size = Vector2(39, 20)
+
+[node name="Day1Night" type="Node2D" unique_id=837071044]
+script = ExtResource("1_5icvy")
+
+[node name="NoInterior" type="Sprite2D" parent="." unique_id=1456679427]
+texture = ExtResource("2_q2uf0")
+
+[node name="Kasur" type="Sprite2D" parent="." unique_id=210528743]
+light_mask = 0
+position = Vector2(-85.00001, -29.000002)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("3_xuqur")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Kasur" unique_id=348342559]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kasur/StaticBody2D" unique_id=645431218]
+position = Vector2(1.5258789e-05, 0.5)
+shape = SubResource("RectangleShape2D_44kl2")
+
+[node name="Meja" type="Sprite2D" parent="." unique_id=1461609748]
+light_mask = 0
+position = Vector2(-88.00001, 21.000002)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("4_t06lx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Meja" unique_id=1272523866]
+position = Vector2(1.1737531e-05, -1.5384588)
+scale = Vector2(0.8153827, 1.3692307)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Meja/StaticBody2D" unique_id=1693941189]
+position = Vector2(1.5258789e-05, 0.5)
+shape = SubResource("RectangleShape2D_44kl2")
+
+[node name="Bangku" type="Sprite2D" parent="." unique_id=544939518]
+light_mask = 0
+position = Vector2(-67.00001, 21)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("5_6im8i")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bangku" unique_id=878766522]
+position = Vector2(1.1737531e-05, -2.3841858e-07)
+scale = Vector2(0.56923074, 0.7538461)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bangku/StaticBody2D" unique_id=136436315]
+position = Vector2(1.5258789e-05, 0.5)
+shape = SubResource("RectangleShape2D_44kl2")
+
+[node name="TaskModular" parent="." unique_id=126960746 instance=ExtResource("6_501d8")]
+position = Vector2(-15, 23)
+scale = Vector2(0.601753, 0.45733225)
+custom_texture = ExtResource("7_qpixb")
+
+[node name="TaskModular4" parent="." unique_id=894912333 instance=ExtResource("6_501d8")]
+position = Vector2(1, -0.99999905)
+scale = Vector2(0.601753, 0.45733225)
+custom_texture = ExtResource("8_31xgu")
+
+[node name="Player" parent="." unique_id=2026500027 instance=ExtResource("9_6fb3b")]
+position = Vector2(-42.000004, -24)
+scale = Vector2(0.6, 0.6)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1507315157]
+position = Vector2(0, -1)
+collision_layer = 8
+
+[node name="WallTop" type="CollisionShape2D" parent="StaticBody2D" unique_id=1145349518]
+position = Vector2(0, -77)
+scale = Vector2(1, 0.56)
+shape = SubResource("RectangleShape2D_ioj4g")
+
+[node name="WallBottom" type="CollisionShape2D" parent="StaticBody2D" unique_id=1883885001]
+position = Vector2(-60.000004, 65.999985)
+scale = Vector2(0.548216, 0.51285666)
+shape = SubResource("RectangleShape2D_ioj4g")
+
+[node name="WallBottom2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1877184181]
+position = Vector2(97, 67.99999)
+scale = Vector2(0.42821598, 0.5528542)
+shape = SubResource("RectangleShape2D_ioj4g")
+
+[node name="WallBottom3" type="CollisionShape2D" parent="StaticBody2D" unique_id=646869884]
+position = Vector2(28.999996, 86)
+scale = Vector2(0.548216, 0.15285659)
+shape = SubResource("RectangleShape2D_ioj4g")
+
+[node name="Left Wall" type="CollisionShape2D" parent="StaticBody2D" unique_id=1738032530]
+position = Vector2(-115.00001, -1)
+scale = Vector2(0.12599404, 2.9722705)
+shape = SubResource("RectangleShape2D_ioj4g")
+
+[node name="Right Wall" type="CollisionShape2D" parent="StaticBody2D" unique_id=915919709]
+position = Vector2(121.00001, -1)
+scale = Vector2(0.12599404, 2.9722705)
+shape = SubResource("RectangleShape2D_ioj4g")
+
+[node name="LevelManager" parent="." unique_id=167112185 instance=ExtResource("10_gk27s")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=905839060]
+
+[node name="DialogueControl" parent="CanvasLayer" unique_id=1915989084 instance=ExtResource("11_oebl6")]
+dialog_json_path = "   res://dialogue-data/data-ready/Dialogue - Day 1 Wake Up.json"
+
+[node name="DoorTrigger" type="Area2D" parent="." unique_id=1167919060]
+visible = false
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorTrigger" unique_id=1517418513]
+position = Vector2(25.5, 70)
+shape = SubResource("RectangleShape2D_b37cw")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=848914579]
+position = Vector2(25, 68)

@@ -20,8 +20,18 @@ size = Vector2(42.000004, 61)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ioj4g"]
 size = Vector2(240, 63.21039)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b37cw"]
+size = Vector2(39, 20)
+
 [node name="Day1Morning" type="Node2D" unique_id=837071044]
 script = ExtResource("1_58qdr")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=370267412]
+offset_left = -367.0
+offset_top = -256.0
+offset_right = 391.0
+offset_bottom = 208.0
+color = Color(0, 0, 0, 1)
 
 [node name="NoInterior" type="Sprite2D" parent="." unique_id=1456679427]
 texture = ExtResource("1_ajp4n")
@@ -146,3 +156,10 @@ shape = SubResource("RectangleShape2D_ioj4g")
 
 [node name="DialogueControl" parent="CanvasLayer" unique_id=1915989084 instance=ExtResource("4_3fixl")]
 dialog_json_path = "   res://dialogue-data/data-ready/Dialogue - Day 1 Wake Up.json"
+
+[node name="DoorTrigger" type="Area2D" parent="." unique_id=1167919060]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorTrigger" unique_id=1517418513]
+position = Vector2(25.5, 70)
+shape = SubResource("RectangleShape2D_b37cw")

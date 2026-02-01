@@ -40,8 +40,14 @@ func interact():
 		return
 
 	for body in obj_touched:
+		# Check wardrobe/furniture interactive
+		if body.has_method("can_be_interacted") and body.can_be_interacted():
+			if body.has_method("interact"):
+				if body.interact():
+					break
+
 		# Check if cleanable (NODA, BARANG)
-		if body.has_method("can_be_cleaned") and body.can_be_cleaned():
+		elif body.has_method("can_be_cleaned") and body.can_be_cleaned():
 			cleansing(body)
 			break
 
@@ -49,7 +55,6 @@ func interact():
 		elif body.has_method("can_be_picked") and body.can_be_picked():
 			pickup_item(body)
 			break
-
 
 func pickup_item(body):
 	var inst = HOLD_INTSANCE.instantiate()
