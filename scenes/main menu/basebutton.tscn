@@ -1,6 +1,17 @@
 [gd_scene format=3 uid="uid://dj61r0g3ghy8c"]
 
 [ext_resource type="Script" uid="uid://2ctk6kqsbus6" path="res://scripts/ui_effect/basebutton.gd" id="1_phtcr"]
+[ext_resource type="FontFile" uid="uid://bg8ce000f3alv" path="res://asset/Type Machine.ttf" id="2_tbxi4"]
+[ext_resource type="Texture2D" uid="uid://ck1meb0wj4u4u" path="res://asset/UI/button_hover.tres" id="3_0mkkb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_248qr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0mkkb"]
+texture = ExtResource("3_0mkkb")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_248qr"]
+texture = ExtResource("3_0mkkb")
 
 [node name="basebutton" type="Control" unique_id=929015978]
 custom_minimum_size = Vector2(119, 31)
@@ -19,6 +30,12 @@ anchor_bottom = 1.0
 offset_right = -3.0517578e-05
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_tbxi4")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_248qr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0mkkb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_248qr")
 text = "START"
 
 [connection signal="button_up" from="button" to="." method="_on_button_button_up"]

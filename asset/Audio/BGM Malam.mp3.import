@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://2miex84giw63"
+path="res://.godot/imported/BGM Malam.mp3-03f045d93bc9135abae5f2ab7d76a6c4.mp3str"
+
+[deps]
+
+source_file="res://asset/Audio/BGM Malam.mp3"
+dest_files=["res://.godot/imported/BGM Malam.mp3-03f045d93bc9135abae5f2ab7d76a6c4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

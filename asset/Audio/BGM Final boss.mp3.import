@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c7gxq28bjuwe6"
+path="res://.godot/imported/BGM Final boss.mp3-af77e5459c749c7300b08d0167be452a.mp3str"
+
+[deps]
+
+source_file="res://asset/Audio/BGM Final boss.mp3"
+dest_files=["res://.godot/imported/BGM Final boss.mp3-af77e5459c749c7300b08d0167be452a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

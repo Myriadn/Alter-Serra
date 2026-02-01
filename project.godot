@@ -11,15 +11,21 @@ config_version=5
 [application]
 
 config/name="ggj-2026-sil22"
-run/main_scene="res://scenes/levels/node_2d.tscn"
+config/version="0.1"
+run/main_scene="uid://dxnnxcgxhwb8f"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://chg503nwyulu3"
+
+[audio]
+
+buses/default_bus_layout="uid://bgosw6xrjif75"
 
 [autoload]
 
 GlobalHandle="*uid://mi4ov4u8fq8q"
 DayManager="*uid://otuuevic32q5"
 Fade="*uid://d4f006h7nehdw"
+SceneManager="*uid://qtrk8we4pv7j"
 
 [display]
 
@@ -28,6 +34,7 @@ window/size/viewport_height=360
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [dotnet]
 

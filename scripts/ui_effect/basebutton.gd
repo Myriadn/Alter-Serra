@@ -42,6 +42,7 @@ func _ready() -> void:
 	update_preview()
 
 func _on_mouse_entered() -> void:
+	GlobalHandle._play_audio(preload("uid://bw5f7hxjniejc"), self)
 	GlobalHandle._make_tween(button, "position", dir * power * 10, durasi)
 
 func _on_mouse_exited() -> void:
@@ -49,4 +50,5 @@ func _on_mouse_exited() -> void:
 
 
 func _on_button_button_up() -> void:
+	GlobalHandle._play_audio(preload("uid://y1pr47jee5aj"), self)
 	emit_signal("button_press", button)
