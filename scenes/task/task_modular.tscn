@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ox3vvjt0cv1u"]
 
 [ext_resource type="Script" uid="uid://c2qrb5ncfwv8a" path="res://scripts/task/task_modular.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://p61xbr3ruo6q" path="res://asset/Noda.png" id="2_eytv2"]
 
 [sub_resource type="RectangleShape2D" id="shape1"]
 size = Vector2(30, 30)
@@ -12,6 +13,7 @@ script = ExtResource("1")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=31627788]
 scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_eytv2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2081125138]
 shape = SubResource("shape1")

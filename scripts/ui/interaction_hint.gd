@@ -7,7 +7,7 @@ extends Node2D
 @export var hint_text: String = "E"
 @export var offset_y: float = -30.0
 
-var is_visible: bool = false
+var is_showing: bool = false
 
 func _ready():
 	# Set initial position
@@ -22,10 +22,10 @@ func _ready():
 	visible = false
 
 func show_hint():
-	if is_visible:
+	if is_showing:
 		return
 
-	is_visible = true
+	is_showing = true
 	visible = true
 
 	if anim:
@@ -34,10 +34,10 @@ func show_hint():
 		anim.play("float")
 
 func hide_hint():
-	if not is_visible:
+	if not is_showing:
 		return
 
-	is_visible = false
+	is_showing = false
 
 	if anim:
 		anim.stop()

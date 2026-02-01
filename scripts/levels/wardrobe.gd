@@ -1,11 +1,12 @@
 extends StaticBody2D
 class_name Wardrobe
 
-signal task_completed
+signal wardrobe_completed
 
 @export var furniture_name: String = "Lemari"
 @export var change_duration: float = 2.0
 @export var player_sprite_after: Texture2D
+@export var require_all_tasks_done: bool = true
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var timer: Timer = $Timer
@@ -16,6 +17,8 @@ var is_changing: bool = false
 var player_ref: Player = null
 var progress_bar = null
 var elapsed_time: float = 0.0
+var level_manager: LevelManager = null
+var all_tasks_done: bool = false
 
 func _ready():
 	add_to_group("interactables")
@@ -30,8 +33,32 @@ func _ready():
 		timer.wait_time = change_duration
 		timer.timeout.connect(_on_timer_timeout)
 
+	# Wait for scene ready
+	await get_tree().process_frame
+
+	# Find level manager
+	var managers = get_tree().get_nodes_in_group("level_manager")
+	if managers.size() > 0:
+		level_manager = managers[0]
+		level_manager.all_tasks_completed.connect(_on_all_tasks_completed)
+		print("✅ Wardrobe found LevelManager")
+	else:
+		print("⚠️ Wardrobe: LevelManager not found!")
+
+func _on_all_tasks_completed():
+	all_tasks_done = true
+	print("👕 Wardrobe sekarang bisa dipakai!")
+
 func can_be_interacted() -> bool:
-	return not is_completed and not is_changing
+	if is_completed or is_changing:
+		return false
+
+	# Cek apakah semua tasks sudah selesai
+	if require_all_tasks_done and not all_tasks_done:
+		print("👕 Belum bisa ganti baju, beresin dulu tugasnya!")
+		return false
+
+	return true
 
 func interact():
 	if not can_be_interacted():
@@ -93,13 +120,14 @@ func _on_timer_timeout():
 	if player_ref:
 		player_ref.set_physics_process(true)
 
-	# Emit task completed
-	task_completed.emit()
+	# Emit wardrobe completed
+	wardrobe_completed.emit()
 
 # Show/hide hint when player near
 func _on_area_2d_body_entered(body):
-	if body is Player and can_be_interacted():
-		if hint:
+	if body is Player:
+		# Show hint only if can be interacted
+		if can_be_interacted() and hint:
 			hint.show_hint()
 
 func _on_area_2d_body_exited(body):

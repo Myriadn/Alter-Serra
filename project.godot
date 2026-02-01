@@ -24,7 +24,7 @@ buses/default_bus_layout="uid://bgosw6xrjif75"
 
 GlobalHandle="*uid://mi4ov4u8fq8q"
 DayManager="*uid://otuuevic32q5"
-Fade="*uid://d4f006h7nehdw"
+Fade="uid://d4f006h7nehdw"
 SceneManager="*uid://qtrk8we4pv7j"
 
 [display]

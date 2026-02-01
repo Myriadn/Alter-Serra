@@ -27,8 +27,7 @@ func _ready():
 	if door_trigger:
 		door_trigger.body_entered.connect(_on_door_entered)
 
-	await Fade.fade_in(1.0)
-	# Start opening dialog
+	# Start opening dialog (SceneManager udah handle fade in dari scene sebelumnya)
 	dialog_control.play_dialog(DIALOG_WAKE_UP)
 
 func _on_dialog_finished():
@@ -48,5 +47,4 @@ func _on_door_entered(body):
 		door_triggered = true
 		# Disable player movement
 		player.set_physics_process(false)
-		await Fade.fade_out(1.0)
 		DayManager.next_scene()

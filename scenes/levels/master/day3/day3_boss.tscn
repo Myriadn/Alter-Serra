@@ -1,88 +1,102 @@
 [gd_scene format=3 uid="uid://bdhg1v8n5dct7"]
 
-[ext_resource type="Script" uid="uid://buafdb6k2mmpw" path="res://scripts/levels/day1_night.gd" id="1_4fmj6"]
+[ext_resource type="Script" uid="uid://dohye3j4v7205" path="res://scripts/levels/day3_boss.gd" id="1_rcnlj"]
 [ext_resource type="Texture2D" uid="uid://diuxhicxsg8kr" path="res://assets/levels/background/no_interior.png" id="2_bu3dq"]
-[ext_resource type="Texture2D" uid="uid://cxwee24rnnicq" path="res://assets/levels/environment/kasur.tres" id="3_rcnlj"]
-[ext_resource type="Texture2D" uid="uid://bn45cr8836k6g" path="res://assets/levels/environment/meja.tres" id="4_eslrn"]
-[ext_resource type="Texture2D" uid="uid://dbm88qwhsbj0e" path="res://assets/levels/environment/bangku.tres" id="5_5i2ms"]
+[ext_resource type="Texture2D" uid="uid://dgul0ur7wtedg" path="res://assets/levels/environment/daging_1.tres" id="5_723ha"]
 [ext_resource type="PackedScene" uid="uid://ox3vvjt0cv1u" path="res://scenes/task/task_modular.tscn" id="6_m46bp"]
+[ext_resource type="Texture2D" uid="uid://7iomfk8a3jvd" path="res://assets/levels/environment/daging_2.tres" id="6_qk26j"]
+[ext_resource type="Texture2D" uid="uid://bef4osb7nw5bg" path="res://asset/alterEgo/Untitled182_20260131121859.png" id="7_aakb7"]
 [ext_resource type="Texture2D" uid="uid://bw4mca7k5va8q" path="res://assets/levels/environment/kertas_acak_1.tres" id="7_becv8"]
+[ext_resource type="PackedScene" uid="uid://dclef2xnuhnuy" path="res://scenes/ai/ai_horizontal.tscn" id="8_aakb7"]
 [ext_resource type="Texture2D" uid="uid://4pqxuhd5476d" path="res://assets/levels/environment/kertas_acak_2.tres" id="8_inxvm"]
+[ext_resource type="PackedScene" uid="uid://bk074axjkhaow" path="res://scenes/ai/ai_vertical.tscn" id="8_qk26j"]
 [ext_resource type="PackedScene" uid="uid://cdx24aoy1dsci" path="res://scenes/characters/Player.tscn" id="9_vstwa"]
 [ext_resource type="PackedScene" uid="uid://jcn83penk3wp" path="res://scenes/levels/prototype/level_manager.tscn" id="10_4et5n"]
 [ext_resource type="PackedScene" uid="uid://cn3pjhi6lx4c1" path="res://scenes/characters/dialogue_control.tscn" id="11_t80kk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_44kl2"]
-size = Vector2(42.000004, 61)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ioj4g"]
 size = Vector2(240, 63.21039)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aakb7"]
+size = Vector2(25, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b37cw"]
 size = Vector2(39, 20)
 
-[node name="Day1Night" type="Node2D" unique_id=837071044]
-script = ExtResource("1_4fmj6")
+[node name="Day3Boss" type="Node2D" unique_id=837071044]
+script = ExtResource("1_rcnlj")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1377040769]
+color = Color(0.8187633, 0.37136334, 0.39746457, 1)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1454829547]
+offset_left = -367.0
+offset_top = -224.0
+offset_right = 391.0
+offset_bottom = 153.0
+scale = Vector2(1, 2.7999992)
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="NoInterior" type="Sprite2D" parent="." unique_id=1456679427]
 texture = ExtResource("2_bu3dq")
 
-[node name="Kasur" type="Sprite2D" parent="." unique_id=210528743]
-light_mask = 0
-position = Vector2(-85.00001, -29.000002)
-scale = Vector2(0.65, 0.65)
-texture = ExtResource("3_rcnlj")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Kasur" unique_id=348342559]
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kasur/StaticBody2D" unique_id=645431218]
-position = Vector2(1.5258789e-05, 0.5)
-shape = SubResource("RectangleShape2D_44kl2")
-
-[node name="Meja" type="Sprite2D" parent="." unique_id=1461609748]
-light_mask = 0
-position = Vector2(-88.00001, 21.000002)
-scale = Vector2(0.65, 0.65)
-texture = ExtResource("4_eslrn")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Meja" unique_id=1272523866]
-position = Vector2(1.1737531e-05, -1.5384588)
-scale = Vector2(0.8153827, 1.3692307)
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Meja/StaticBody2D" unique_id=1693941189]
-position = Vector2(1.5258789e-05, 0.5)
-shape = SubResource("RectangleShape2D_44kl2")
-
-[node name="Bangku" type="Sprite2D" parent="." unique_id=544939518]
-light_mask = 0
-position = Vector2(-67.00001, 21)
-scale = Vector2(0.65, 0.65)
-texture = ExtResource("5_5i2ms")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Bangku" unique_id=878766522]
-position = Vector2(1.1737531e-05, -2.3841858e-07)
-scale = Vector2(0.56923074, 0.7538461)
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bangku/StaticBody2D" unique_id=136436315]
-position = Vector2(1.5258789e-05, 0.5)
-shape = SubResource("RectangleShape2D_44kl2")
-
 [node name="TaskModular" parent="." unique_id=126960746 instance=ExtResource("6_m46bp")]
-position = Vector2(-15, 23)
-scale = Vector2(0.601753, 0.45733225)
+position = Vector2(-54.000004, 32)
+rotation = -1.3060358
+scale = Vector2(0.42186692, 0.42186692)
+custom_texture = ExtResource("8_inxvm")
+
+[node name="TaskModular2" parent="." unique_id=1429969221 instance=ExtResource("6_m46bp")]
+position = Vector2(25.999996, 1.0000038)
+rotation = -1.3060358
+scale = Vector2(0.42186692, 0.42186692)
 custom_texture = ExtResource("7_becv8")
 
-[node name="TaskModular4" parent="." unique_id=894912333 instance=ExtResource("6_m46bp")]
-position = Vector2(1, -0.99999905)
-scale = Vector2(0.601753, 0.45733225)
-custom_texture = ExtResource("8_inxvm")
+[node name="TaskModular3" parent="." unique_id=391677912 instance=ExtResource("6_m46bp")]
+position = Vector2(50, 36)
+rotation = -1.3060358
+scale = Vector2(0.42186692, 0.42186692)
+custom_texture = ExtResource("7_becv8")
+
+[node name="TaskModular4" parent="." unique_id=347603908 instance=ExtResource("6_m46bp")]
+position = Vector2(84.00001, 2)
+rotation = -1.3060358
+scale = Vector2(0.42186692, 0.42186692)
+custom_texture = ExtResource("7_becv8")
+
+[node name="TaskModular5" parent="." unique_id=1575108217 instance=ExtResource("6_m46bp")]
+position = Vector2(-83.99999, -30)
+rotation = -1.4861844
+scale = Vector2(0.68322325, 0.68322325)
+custom_texture = ExtResource("6_qk26j")
+
+[node name="TaskModular6" parent="." unique_id=532873606 instance=ExtResource("6_m46bp")]
+position = Vector2(24.999998, 63)
+rotation = -1.4861844
+scale = Vector2(0.9180327, 0.9180327)
+custom_texture = ExtResource("6_qk26j")
 
 [node name="Player" parent="." unique_id=2026500027 instance=ExtResource("9_vstwa")]
 position = Vector2(-42.000004, -24)
 scale = Vector2(0.6, 0.6)
+
+[node name="Daging1" type="Sprite2D" parent="." unique_id=1655303162]
+position = Vector2(89, 32)
+texture = ExtResource("5_723ha")
+
+[node name="Daging2" type="Sprite2D" parent="." unique_id=2016476582]
+position = Vector2(-86, 0)
+texture = ExtResource("6_qk26j")
+
+[node name="Daging4" type="Sprite2D" parent="." unique_id=1094994633]
+position = Vector2(92, -33)
+texture = ExtResource("6_qk26j")
+
+[node name="Boss" type="Sprite2D" parent="." unique_id=296453296]
+position = Vector2(46, -19.999998)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("7_aakb7")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1507315157]
 position = Vector2(0, -1)
@@ -118,6 +132,18 @@ position = Vector2(121.00001, -1)
 scale = Vector2(0.12599404, 2.9722705)
 shape = SubResource("RectangleShape2D_ioj4g")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1630687145]
+position = Vector2(-85.5, 0.5)
+shape = SubResource("RectangleShape2D_aakb7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1076035976]
+position = Vector2(92, -35)
+shape = SubResource("RectangleShape2D_aakb7")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1165102760]
+position = Vector2(90, 33)
+shape = SubResource("RectangleShape2D_aakb7")
+
 [node name="LevelManager" parent="." unique_id=167112185 instance=ExtResource("10_4et5n")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=905839060]
@@ -134,4 +160,28 @@ position = Vector2(25.5, 70)
 shape = SubResource("RectangleShape2D_b37cw")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=848914579]
-position = Vector2(25, 68)
+position = Vector2(-28, 0)
+
+[node name="AIHorizontal" parent="." unique_id=2112976687 instance=ExtResource("8_aakb7")]
+position = Vector2(0, 34)
+speed = 100.0
+patrol_distance = 75.0
+
+[node name="AIHorizontal2" parent="." unique_id=1530873936 instance=ExtResource("8_aakb7")]
+position = Vector2(0, -31)
+speed = 100.0
+patrol_distance = 75.0
+
+[node name="AIVertical" parent="." unique_id=1639402996 instance=ExtResource("8_qk26j")]
+speed = 125.0
+patrol_distance = 50.0
+
+[node name="AIVertical2" parent="." unique_id=39640940 instance=ExtResource("8_qk26j")]
+position = Vector2(-58, 0)
+speed = 125.0
+patrol_distance = 50.0
+
+[node name="AIVertical3" parent="." unique_id=522955179 instance=ExtResource("8_qk26j")]
+position = Vector2(54, 0)
+speed = 125.0
+patrol_distance = 50.0

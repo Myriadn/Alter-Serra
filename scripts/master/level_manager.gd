@@ -10,29 +10,11 @@ var filled_box_seats: int = 0
 var total_tasks_for_day: int = 0
 
 func _ready():
+	add_to_group("level_manager")  # Add to group so Bed can find it
+
 	await get_tree().process_frame
 	connect_existing_tasks()
 	connect_existing_box_seats()
-	connect_interactables()
-
-func connect_interactables():
-	"""Connect furniture/interactables (wardrobe, dll)"""
-	var interactables = get_tree().get_nodes_in_group("interactables")
-
-	for obj in interactables:
-		# Check if has task_completed signal
-		if obj.has_signal("task_completed"):
-			obj.task_completed.connect(_on_interactable_task_completed)
-			total_tasks_for_day += 1
-
-			var obj_name = obj.furniture_name if obj.get("furniture_name") else obj.name
-			print("🛋️ Found interactable: ", obj_name)
-
-func _on_interactable_task_completed():
-	completed_tasks += 1
-	print("✅ Interactable task done! (", completed_tasks, "/", total_tasks_for_day, ")")
-	check_level_complete()
-
 
 func connect_existing_tasks():
 	"""Find semua tasks yang udah di-taro di scene oleh tim desain"""
