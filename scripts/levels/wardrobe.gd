@@ -9,6 +9,7 @@ signal task_completed
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var timer: Timer = $Timer
+@onready var hint = $InteractionHint if has_node("InteractionHint") else null
 
 var is_completed: bool = false
 var is_changing: bool = false
@@ -18,6 +19,10 @@ var elapsed_time: float = 0.0
 
 func _ready():
 	add_to_group("interactables")
+
+	# Hide hint by default
+	if hint:
+		hint.hide_hint()
 
 	# Setup timer
 	if timer:
@@ -40,6 +45,10 @@ func interact():
 		return false
 
 	print("👕 Mulai ganti baju...")
+
+	# Hide hint when interacting
+	if hint:
+		hint.hide_hint()
 
 	# Start changing
 	is_changing = true
@@ -86,6 +95,17 @@ func _on_timer_timeout():
 
 	# Emit task completed
 	task_completed.emit()
+
+# Show/hide hint when player near
+func _on_area_2d_body_entered(body):
+	if body is Player and can_be_interacted():
+		if hint:
+			hint.show_hint()
+
+func _on_area_2d_body_exited(body):
+	if body is Player:
+		if hint:
+			hint.hide_hint()
 
 func change_player_sprite():
 	if not player_ref:

@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bn45cr8836k6g" path="res://assets/levels/environment/meja.tres" id="4_pb32l"]
 [ext_resource type="Texture2D" uid="uid://dbm88qwhsbj0e" path="res://assets/levels/environment/bangku.tres" id="5_51k32"]
 [ext_resource type="PackedScene" uid="uid://ox3vvjt0cv1u" path="res://scenes/task/task_modular.tscn" id="7_ews27"]
+[ext_resource type="PackedScene" uid="uid://c5yqm8x7n8jgr" path="res://scenes/ui/interaction_hint.tscn" id="7_yl7hq"]
 [ext_resource type="Texture2D" uid="uid://bw4mca7k5va8q" path="res://assets/levels/environment/kertas_acak_1.tres" id="8_yl7hq"]
 [ext_resource type="Texture2D" uid="uid://4pqxuhd5476d" path="res://assets/levels/environment/kertas_acak_2.tres" id="9_uso5v"]
 [ext_resource type="PackedScene" uid="uid://cdx24aoy1dsci" path="res://scenes/characters/Player.tscn" id="11_cwv6a"]
@@ -22,6 +23,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8f6of"]
 size = Vector2(28, 17)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uso5v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44kl2"]
 size = Vector2(42.000004, 61)
@@ -64,6 +67,16 @@ position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_8f6of")
 
 [node name="Timer" type="Timer" parent="Wardrobe" unique_id=196674712]
+
+[node name="InteractionHint" parent="Wardrobe" unique_id=1221953532 instance=ExtResource("7_yl7hq")]
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D" type="Area2D" parent="Wardrobe" unique_id=1671259767]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wardrobe/Area2D" unique_id=340425958]
+position = Vector2(0, 8.000001)
+scale = Vector2(1.6295096, 1.6295096)
+shape = SubResource("CircleShape2D_uso5v")
 
 [node name="Bed" type="StaticBody2D" parent="." unique_id=348342559]
 position = Vector2(-85.00001, -29.000002)
@@ -197,3 +210,6 @@ texture = ExtResource("13_pb32l")
 [node name="TempatSampah" type="Sprite2D" parent="." unique_id=509811476]
 position = Vector2(77, 38)
 texture = ExtResource("14_51k32")
+
+[connection signal="body_entered" from="Wardrobe/Area2D" to="Wardrobe" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Wardrobe/Area2D" to="Wardrobe" method="_on_area_2d_body_exited"]
