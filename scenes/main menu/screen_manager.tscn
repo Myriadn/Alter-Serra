@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://qtrk8we4pv7j"]
+
+[ext_resource type="Script" uid="uid://boicj76qi1xrr" path="res://scripts/ui_effect/screen_manager.gd" id="1_rxn4l"]
+[ext_resource type="FontFile" uid="uid://bg8ce000f3alv" path="res://asset/Type Machine.ttf" id="2_g0tlh"]
+
+[sub_resource type="Animation" id="Animation_ndkxw"]
+resource_name = "Fadew"
+length = 0.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rxn4l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g0tlh"]
+_data = {
+&"Fadew": SubResource("Animation_ndkxw"),
+&"RESET": SubResource("Animation_rxn4l")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_8bf75"]
+font = ExtResource("2_g0tlh")
+font_size = 20
+
+[node name="ScreenManager" type="CanvasLayer" unique_id=460115450]
+process_mode = 3
+script = ExtResource("1_rxn4l")
+
+[node name="Control" type="Control" parent="." unique_id=376377450]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=58539191]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control" unique_id=2076581567]
+libraries/ = SubResource("AnimationLibrary_g0tlh")
+
+[node name="Label" type="Label" parent="Control" unique_id=1314112573]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.5
+offset_top = -12.0
+offset_right = 49.5
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "DAY COUNT"
+label_settings = SubResource("LabelSettings_8bf75")

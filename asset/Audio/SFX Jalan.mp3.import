@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b820uu3eyc8o6"
+path="res://.godot/imported/SFX Jalan.mp3-f97f1678e36e501720bee6b9c4509e9a.mp3str"
+
+[deps]
+
+source_file="res://asset/Audio/SFX Jalan.mp3"
+dest_files=["res://.godot/imported/SFX Jalan.mp3-f97f1678e36e501720bee6b9c4509e9a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
