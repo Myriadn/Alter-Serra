@@ -29,23 +29,40 @@ shape = SubResource("RectangleShape2D_3g1ys")
 y_sort_enabled = true
 
 [node name="task_cleaning" parent="EntityGroup" unique_id=1257969829 instance=ExtResource("3_ca3nq")]
+<<<<<<< HEAD
+<<<<<<< HEAD
+position = Vector2(46, 15)
+collision_layer = 2
+=======
+position = Vector2(31, -31)
+collision_layer = 0
+	
 position = Vector2(31, -31)
 task_type = 1
 
 [node name="task_cleaning2" parent="EntityGroup" unique_id=978501197 instance=ExtResource("3_ca3nq")]
 position = Vector2(-102, -43)
+collision_layer = 0
 
 [node name="task_cleaning3" parent="EntityGroup" unique_id=71212040 instance=ExtResource("3_ca3nq")]
 position = Vector2(-47, -154)
-collision_layer = 4
+collision_layer = 0
 task_type = 2
+
 
 [node name="task_cleaning4" parent="EntityGroup" unique_id=261699363 instance=ExtResource("3_ca3nq")]
 position = Vector2(177, -59)
+collision_layer = 0
 
 [node name="task_cleaning5" parent="EntityGroup" unique_id=83036680 instance=ExtResource("3_ca3nq")]
 position = Vector2(90, -137)
+collision_layer = 0
 task_type = 1
+
+[node name="task_cleaning6" parent="EntityGroup" unique_id=824050883 instance=ExtResource("3_ca3nq")]
+position = Vector2(85, -46)
+collision_layer = 0
+task_type = 3
 
 [node name="box_seat" parent="EntityGroup" unique_id=2036357280 instance=ExtResource("3_vtrwo")]
 position = Vector2(128, 10)

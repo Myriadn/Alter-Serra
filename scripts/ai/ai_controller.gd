@@ -1,6 +1,8 @@
 extends Area2D
 class_name AIController
 
+signal player_caught
+
 @export var speed: float = 50.0
 @export var patrol_distance: float = 100.0
 @export var wait_time: float = 1.0  # Waktu tunggu di ujung patrol
@@ -18,15 +20,12 @@ func _ready():
 	# print("AI spawned at: ", global_position)
 
 func _on_body_entered(body: Node2D):
-	if body is Player:  # Cek apakah yang nabrak player
-		print("touched")
-		# Nanti bisa trigger game over / retry di sini
-		trigger_game_over(body)
+	if body.is_in_group("Player"):
+		print("AI touched player")
+		player_caught.emit()
 
 func trigger_game_over(player: Player):
-	# Placeholder - nanti bisa panggil game manager
 	print("Game over will implemented")
-	# get_tree().reload_current_scene()
 
 # Override ini di child class
 func setup_patrol():

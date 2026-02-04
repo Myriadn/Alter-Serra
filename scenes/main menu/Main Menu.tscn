@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://dxnnxcgxhwb8f"]
 
 [ext_resource type="PackedScene" uid="uid://dj61r0g3ghy8c" path="res://scenes/main menu/basebutton.tscn" id="1_d3dtj"]
+[ext_resource type="Texture2D" uid="uid://cc7yosmmurfqu" path="res://asset/UI/BG UI UX.png" id="1_keagk"]
+[ext_resource type="Script" uid="uid://btpqlfp0d2sti" path="res://scripts/ui_effect/main_menu.gd" id="1_rlj4m"]
+[ext_resource type="Texture2D" uid="uid://d1j4s2pbtlcfa" path="res://asset/UI/logo.tres" id="3_jhkhn"]
+[ext_resource type="AudioStream" uid="uid://uhcqwd7n816n" path="res://asset/Audio/bgm menu.mp3" id="5_xany4"]
 
-[node name="CanvasLayer" type="CanvasLayer" unique_id=1341289840]
+[node name="MainMenu" type="CanvasLayer" unique_id=1341289840]
+script = ExtResource("1_rlj4m")
 
 [node name="Control" type="Control" parent="." unique_id=275312536]
 layout_mode = 3
@@ -12,41 +17,82 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1017753613]
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=859978097]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.11372549, 0.11372549, 0.11372549, 0.21176471)
+texture = ExtResource("1_keagk")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="buttonBox" type="VBoxContainer" parent="Control" unique_id=952216699]
+[node name="LeftPanel" type="Control" parent="Control" unique_id=418834155]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 284.0
+grow_vertical = 2
+
+[node name="buttonBox" type="VBoxContainer" parent="Control/LeftPanel" unique_id=952216699]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -252.0
-offset_top = -29.0
-offset_right = -133.0
-offset_bottom = 72.0
+offset_left = -59.5
+offset_top = 28.0
+offset_right = 59.5
+offset_bottom = 94.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_group_ = true
 
-[node name="Start" parent="Control/buttonBox" unique_id=929015978 instance=ExtResource("1_d3dtj")]
+[node name="Start" parent="Control/LeftPanel/buttonBox" unique_id=929015978 instance=ExtResource("1_d3dtj")]
 layout_mode = 2
 durasi = 0.3
 power = 2.0
 
-[node name="Settings" parent="Control/buttonBox" unique_id=1479308149 instance=ExtResource("1_d3dtj")]
-layout_mode = 2
-_text = "SETTINGS"
-power = 2.0
-
-[node name="Quit" parent="Control/buttonBox" unique_id=881426515 instance=ExtResource("1_d3dtj")]
+[node name="Quit" parent="Control/LeftPanel/buttonBox" unique_id=881426515 instance=ExtResource("1_d3dtj")]
 layout_mode = 2
 _text = "QUIT"
 power = 2.0
+
+[node name="Logo" type="TextureRect" parent="Control/LeftPanel" unique_id=1288164540]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.5
+offset_top = -93.0
+offset_right = 98.5
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_jhkhn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="version" type="Label" parent="Control/LeftPanel" unique_id=1588895230]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -32.0
+offset_right = 96.0
+offset_bottom = -9.0
+grow_vertical = 0
+text = "0.2"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1955920923]
+stream = ExtResource("5_xany4")
+autoplay = true
+bus = &"Music"
+
+[connection signal="button_press" from="Control/LeftPanel/buttonBox/Start" to="." method="_on_start_button_press"]
+[connection signal="button_press" from="Control/LeftPanel/buttonBox/Quit" to="." method="_on_quit_button_press"]
